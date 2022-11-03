@@ -9,4 +9,4 @@ class Station(models.Model):
     station_detail = models.TextField()
     
     def __str__(self):
-        return f"{self.code_station} : {self.thai_name_station} ({self.eng_name_station})"
+        return f"{self.id} : {self.code_station} - {self.thai_name_station} ({self.eng_name_station})"
