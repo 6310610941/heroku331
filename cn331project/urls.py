@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin', admin.site.urls),
     path('about', include('users.urls')),
+    path('bts_for_fun/', include('bts_for_fun.urls')),
 ]
