@@ -1,0 +1,18 @@
+{% extends 'bts_for_fun/layout.html' %}
+{% block body %}
+
+<h1>List of Stations</h1>
+
+<form action="{% url 'bts_for_fun:stations' Station.id %}" method="POST">
+    {% csrf_token %}
+    <select name = >
+
+<ul>
+    {% for station in stations %}
+    <li>{{ station }}</li>
+    {%empty%}
+    <li>No Station.</li>
+    {%endfor%}
+</ul>
+
+{% endblock %}
