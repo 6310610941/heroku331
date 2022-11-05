@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
+from .forms import SignUpForm
 
 import users
 
@@ -12,7 +13,7 @@ log_in = 'users/login.html'
 def index(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('users:login'))
-    return render(request, 'users/index.html')
+    return render(request, 'about/index.html')
 
 def login_view(request):
     if request.method == "POST":
@@ -33,3 +34,14 @@ def logout_view(request):
     return render(request, log_in, {
                 'message': 'You are logged out.'
             })
+
+def signup_view(request):
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+        
+        return render(request, log_in)
+    else:
+        form = SignUpForm()
+    return render(request, 'users/signup.html', {'form':form})
