@@ -10,3 +10,4 @@ class Station(models.Model):
     
     def __str__(self):
         return f"{self.id} : {self.code_station} - {self.thai_name_station} ({self.eng_name_station})"
+    

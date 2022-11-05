@@ -3,7 +3,7 @@
 
 <h1>List of Stations</h1>
 
-<form action="{% url 'index'  %}" method="POST">
+<form action="{% url 'bts_for_fun:index'  %}" method="POST">
     {% csrf_token %}
     <select name = "station" >
         {% for station in stations %}
@@ -13,5 +13,12 @@
     <input type="submit" value="Select Station">
 </form>
 
+<ul>
+    {%for station in stations%}
+    <li>{{station}}</li>
+    {%empty%}
+    <li>No station.</li>
+    {%endfor%}
+</ul>
 {% endblock %}
 
