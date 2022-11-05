@@ -13,7 +13,7 @@ log_in = 'users/login.html'
 def index(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('users:login'))
-    return render(request, 'about/index.html')
+    return HttpResponseRedirect(reverse('about:index'))
 
 def login_view(request):
     if request.method == "POST":
