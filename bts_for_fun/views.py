@@ -14,6 +14,5 @@ def stationdetail(request,station_id):
     station = Station.objects.get(id=station_id)
     return render(request, 'bts_for_fun/stationdetail.html',{
                    'station' : station,
-                   
-        
+
     })
