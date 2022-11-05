@@ -43,7 +43,7 @@ def signup_view(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-        return render(request, log_in)
+            return render(request, log_in)
     else:
         form = SignUpForm()
     return render(request, 'users/signup.html', {'form':form})
