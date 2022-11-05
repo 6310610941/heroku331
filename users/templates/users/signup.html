@@ -1,5 +1,7 @@
+{% extends 'users/layout.html' %}
 {% block content %}
   <h2>Sign Up</h2>
+  <div class="select animated zoomIn">
   <form method="post">
     {% csrf_token %}
     {% for field in form %}
@@ -14,6 +16,8 @@
         {% endfor %}
       </p>
     {% endfor %}
+    </div>
     <button type="submit">Submit</button>
+    
   </form>
 {% endblock %}
