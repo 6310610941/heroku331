@@ -39,7 +39,7 @@ def signup_view(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
         
         return render(request, log_in)
     else:
