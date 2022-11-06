@@ -5,6 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;1,300&display=swap" rel="stylesheet">
         <style>
             @import 'https://fonts.googleapis.com/css?family=Roboto:100,300';
             @import 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.2/css/simple-line-icons.min.css';
@@ -26,7 +29,7 @@
                 /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
                 /* IE6-9 fallback on horizontal gradient */
     
-                font-family: 'Roboto Mono';
+                font-family: "Times New Roman",'K2D', Georgia, Serif;
                 letter-spacing: 1px;
             }
 
@@ -34,7 +37,9 @@
                 i {
                     position: relative;
                     font-size: 70px;
+                    font-family: "Times New Roman",'K2D', Georgia, Serif;
                 }
+                font-family: "Times New Roman",'K2D', Georgia, Serif;
                 text-align: center;
                 color: #fff;
                 font-weight: 600;
@@ -335,7 +340,7 @@
                 <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">BTS For Fun</a>
                 <!-- Right-sided navbar links. Hide them on small screens -->
                 <div class="w3-right w3-hide-small">
-                    <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">About Us</a>
+                    <a href="{% url 'about:about_us' %}" class="w3-bar-item w3-button">About Us</a>
                     <a href="{% url 'bts_for_fun:index' %}" class="w3-bar-item w3-button">List of Stations</a>
                     <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">Fare</a>
                     <a href="{% url 'users:login' %}" class="w3-bar-item w3-button">Log in</a>
