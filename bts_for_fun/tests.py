@@ -31,18 +31,6 @@ class StationTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
 
-    def test_stationdetail_codestatus(self):
-        """ index page should return status code 200 """
 
-        c = Client()
-        station = Station.objects.first()
-        response = self.client.post(reverse('bts_for_fun:stationdetail', args=[station.id]))
-        self.assertEqual(response.status_code, 200)
 
     
-    def test_link_stationdetail(self):
-    
-        c = Client()
-        station = Station.objects.first()
-        response = c.get(reverse('bts_for_fun:index'))
-        self.assertEqual(response.status_code, 200, 'bts_for_fun:stationdetail')
