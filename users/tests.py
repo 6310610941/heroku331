@@ -48,3 +48,32 @@ class SignUpPageTests(TestCase):
             'password2': 'password321'
         })
         self.assertEqual(response.status_code, 200)
+
+class LoginPageTests(TestCase):
+    def setUp(self):
+        #create user
+        self.user = User.objects.create_user('test_user', password='test_pass')
+        #c = Client()
+        #c.login(username='test_user', password='test_pass')
+
+    def test_login_view_status_code(self):
+        """ login view's status code is ok """
+
+        c = Client()
+        response = c.get(reverse('users:login'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_success(self):
+        """ login success """
+        c = Client()
+        c.login(username='test_user', password='test_pass')
+        response = c.get(reverse('users:login'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_fail(self):
+        """ wrong username or password """
+        c = Client()
+        c.login(username='wrong_user', password='wrong_pass')
+        response = c.get(reverse('users:index'))
+        self.assertEqual(response.status_code, 302)
+
