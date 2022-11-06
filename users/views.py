@@ -11,9 +11,10 @@ import users
 log_in = 'users/login.html'
 
 def index(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('users:login'))
-    return HttpResponseRedirect(reverse('about:index'))
+#     if not request.user.is_authenticated:
+#         return HttpResponseRedirect(reverse('users:login'))
+#     return HttpResponseRedirect(reverse('about:index'))
+    pass
 
 def login_view(request):
     if request.method == "POST":
@@ -40,7 +41,7 @@ def signup_view(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('users:login'))
+            return render(request, 'users/login.html')
     else:
         form = SignUpForm()
         return render(request, 'users/signup.html', {'form':form}, status=200)
