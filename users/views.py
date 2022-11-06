@@ -40,7 +40,7 @@ def signup_view(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, log_in, status=200)
+            return HttpResponseRedirect(reverse(log_in), status = 200)
     else:
         form = SignUpForm()
         return render(request, 'users/signup.html', {'form':form}, status=200)
