@@ -12,7 +12,7 @@ class SignUpPageTests(TestCase):
     def test_signup_page_url(self):
         """ sign up page view's status code is ok """
         c = Client()
-        response = c.post(reverse('users:signup'))
+        response = c.get(reverse('users:signup'))
         self.assertEqual(response.status_code, 200)
 
     def test_signup_form(self):
@@ -24,7 +24,7 @@ class SignUpPageTests(TestCase):
     def test_cannot_signup_form(self):
         """ cannot create user """
 
-        response = self.client.post(reverse('users:signup'), {'username': 'harry', 'name': 'draco', 'surname': 'malfoy','email': 'draco@cn331.com', 'password1': 'darry123', 'password2': 'harry123'})
+        response = self.client.get(reverse('users:signup'), {'username': 'harry', 'name': 'draco', 'surname': 'malfoy','email': 'draco@cn331.com', 'password1': 'darry123', 'password2': 'harry123'})
         self.assertEqual(response.status_code, 200)
 
 
