@@ -12,7 +12,7 @@ class SignUpPageTests(TestCase):
     def test_signup_page_url(self):
         """ sign up page view's status code is ok """
         c = Client()
-        response = c.get(reverse('users:signup'))
+        response = c.post(reverse('users:signup'))
         self.assertEqual(response.status_code, 200)
 
     def test_signup_form(self):

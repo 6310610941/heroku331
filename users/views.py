@@ -1,5 +1,5 @@
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
@@ -40,7 +40,7 @@ def signup_view(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse(log_in), status = 200)
+            return HttpResponseRedirect(reverse('users:login'))
     else:
         form = SignUpForm()
         return render(request, 'users/signup.html', {'form':form}, status=200)
