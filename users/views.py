@@ -38,12 +38,10 @@ def logout_view(request):
 def signup_view(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
+        print(form.is_valid())
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            return render(request, log_in)
-    else:
-        form = SignUpForm()
-    return render(request, 'users/signup.html', {'form':form})
+            return render(request, log_in, status=200)
+          
+    form = SignUpForm()
+    return render(request, 'users/signup.html', {'form':form}, status=200)
