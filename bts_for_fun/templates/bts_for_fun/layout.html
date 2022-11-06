@@ -14,6 +14,8 @@
             @import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css';
             @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,700';
 
+            
+
             body {
                 width: 100%;
                 min-height: 900px;
@@ -35,14 +37,15 @@
 
             h1 {
                 i {
+                    margin-top:300px;
                     position: relative;
                     font-size: 70px;
-                    font-family: "Times New Roman",'K2D', Georgia, Serif;
+                    font-family: 'K2D', Georgia, Serif;
                 }
-                font-family: "Times New Roman",'K2D', Georgia, Serif;
+                font-family: 'K2D', Georgia, Serif;
                 text-align: center;
                 color: #fff;
-                font-weight: 600;
+                font-weight: 500;
                 font-size: 3em;
                 letter-spacing: 0px;
                 text-shadow: 1px 1px rgba(0,
@@ -74,6 +77,28 @@
                 0,
                 0.02);
             }
+
+            p1 {
+                text-align: center;
+                color: #fff;
+                font-size: 30px;
+                margin-bottom: 2em;
+                line-height: 30px;
+                font-family: 'K2D', Georgia, Serif;
+                img {
+                    position: relative;
+                    top: 8px;
+                    right: 10px;
+                }
+            }
+            
+
+            .spelling-error {
+                text-decoration-line: underline;
+                text-decoration-style: wavy;
+                text-decoration-color: red;
+            }
+
 
             p {
                 text-align: center;
@@ -344,7 +369,7 @@
                     <a href="{% url 'bts_for_fun:index' %}" class="w3-bar-item w3-button">List of Stations</a>
                     <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">Fare</a>
                     <a href="{% url 'users:login' %}" class="w3-bar-item w3-button">Log in</a>
-                    <a href="{% url 'users:signup' %}" class="w3-bar-item w3-button">sign up</a>
+                    <a href="{% url 'users:signup' %}" class="w3-bar-item w3-button">Sign up</a>
                 </div>
             </div>
         </div>

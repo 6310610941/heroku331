@@ -1,15 +1,16 @@
-{% extends 'users/layout.html' %}
+{% extends 'users/layout3.html' %}
 {% block body %}
-  <h2>Sign Up</h2>
+<div class="main">
+  <p class="sign" align="center">Sign Up</p>
   <div class="select animated zoomIn">
   <form method="post">
     {% csrf_token %}
     {% for field in form %}
-      <p>
+      <p class="un">
         {{ field.label_tag }}<br>
         {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
+        {% if field.help_text %}<br>
+          <small class="un1" style="color: grey">{{ field.help_text }}</small>
         {% endif %}
         {% for error in field.errors %}
           <p style="color: red">{{ error }}</p>
@@ -17,7 +18,8 @@
       </p>
     {% endfor %}
     </div>
-    <button type="submit">Submit</button>
-    
+    <h1> </h1>
+    <input class="submit" type="submit" value="Sign Up">
   </form>
+</div>
 {% endblock %}

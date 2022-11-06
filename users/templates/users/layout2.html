@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang='en','th'>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;1,300&display=swap" rel="stylesheet">
+        <title>Login </title>
+        <title></title>
+        <style>
+            body {
+                background-color: #F3EBF6;
+                font-family: "Times New Roman",'K2D', Georgia, Serif;
+            }
+            
+            .main {
+                background-color: #FFFFFF;
+                width: 400px;
+                height: 400px;
+                margin: 7em auto;
+                border-radius: 1.5em;
+                box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+            }
+            
+            .sign {
+                padding-top: 40px;
+                color: #8C55AA;
+                font-family: 'K2D', Georgia, Serif;
+                font-weight: bold;
+                font-size: 23px;
+            }
+            
+            .un {
+            width: 76%;
+            color: rgb(38, 50, 56);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            background: rgba(136, 126, 126, 0.04);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            box-sizing: border-box;
+            border: 2px solid rgba(0, 0, 0, 0.02);
+            margin-bottom: 50px;
+            margin-left: 46px;
+            text-align: center;
+            margin-bottom: 27px;
+            font-family: 'K2D', Georgia, Serif;
+            }
+            
+            form.form1 {
+                padding-top: 40px;
+            }
+            
+            .pass {
+                    width: 76%;
+            color: rgb(38, 50, 56);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            background: rgba(136, 126, 126, 0.04);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            box-sizing: border-box;
+            border: 2px solid rgba(0, 0, 0, 0.02);
+            margin-bottom: 50px;
+            margin-left: 46px;
+            text-align: center;
+            margin-bottom: 27px;
+            font-family: 'K2D', Georgia, Serif;
+            }
+            
+            
+            .un:focus, .pass:focus {
+                border: 2px solid rgba(0, 0, 0, 0.18) !important;
+            
+            }
+            
+            .submit {
+              cursor: pointer;
+                border-radius: 5em;
+                color: #fff;
+                background: linear-gradient(to right, #ec6f66 , #f3a183
+           );
+                border: 0;
+                padding-left: 40px;
+                padding-right: 40px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                font-family: 'K2D', Georgia, Serif;
+                margin-left: 35%;
+                font-size: 13px;
+                box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+            }
+            
+            .forgot {
+                text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+                color: #E1BEE7;
+                padding-top: 15px;
+            }
+            
+            a {
+                text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+                color: #E1BEE7;
+                text-decoration: none
+            }
+            
+            @media (max-width: 600px) 
+                .main {
+                    border-radius: 0px;
+                }
+        </style>
+    </head>
+    <body>
+        <!-- Navbar (sit on top) -->
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+                <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">BTS For Fun</a>
+                <!-- Right-sided navbar links. Hide them on small screens -->
+                <div class="w3-right w3-hide-small">
+                    <a href="{% url 'about:about_us' %}" class="w3-bar-item w3-button">About Us</a>
+                    <a href="{% url 'bts_for_fun:index' %}" class="w3-bar-item w3-button">List of Stations</a>
+                    <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">Fare</a>
+                    <a href="{% url 'users:login' %}" class="w3-bar-item w3-button">Log in</a>
+                    <a href="{% url 'users:signup' %}" class="w3-bar-item w3-button">Sign up</a>
+                </div>
+            </div>
+        </div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

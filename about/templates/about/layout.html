@@ -33,6 +33,13 @@
                 letter-spacing: 1px;
             }
 
+            .spelling-error {
+                text-decoration-line: underline;
+                text-decoration-style: wavy;
+                text-decoration-color: red;
+            }
+
+
             h1 {
                 i {
                     position: relative;
@@ -344,7 +351,7 @@
                     <a href="{% url 'bts_for_fun:index' %}" class="w3-bar-item w3-button">List of Stations</a>
                     <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">Fare</a>
                     <a href="{% url 'users:login' %}" class="w3-bar-item w3-button">Log in</a>
-                    <a href="{% url 'users:signup' %}" class="w3-bar-item w3-button">sign up</a>
+                    <a href="{% url 'users:signup' %}" class="w3-bar-item w3-button">Sign up</a>
                 </div>
             </div>
         </div>

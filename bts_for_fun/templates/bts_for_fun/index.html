@@ -1,9 +1,10 @@
 {% extends 'bts_for_fun/layout.html' %} {% block body %}
-<center>
+<br>
+<br>
 <h1>List of Stations</h1>
 
 <div class="select animated zoomIn">
-  <form action="{% url 'bts_for_fun:index' %}" method="POST">
+  <form align="center" action="{% url 'bts_for_fun:index' %}" method="POST">
     {% csrf_token %}
     <select
       name="station"
@@ -19,5 +20,5 @@
     </select>
   </form>
 </div>
-</center>
+
 {% endblock %}
