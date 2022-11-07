@@ -41,7 +41,9 @@ def signup_view(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'users/login.html')
+            return render(request, log_in)
+
     else:
         form = SignUpForm()
-        return render(request, 'users/signup.html', {'form':form}, status=200)
+
+    return render(request, 'users/signup.html', {'form':form}, status=200)
