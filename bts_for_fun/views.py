@@ -18,6 +18,7 @@ def stationdetail(request,station_id):
         return render(request, 'users/login.html')
     else:
         station = Station.objects.get(id=station_id)
+        
         return render(request, 'bts_for_fun/stationdetail.html',{
                    'station' : station,
 
