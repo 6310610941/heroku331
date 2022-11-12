@@ -16,6 +16,17 @@
 <p1>-------------------------------------------------------------------</p1><br>
 <br>
 <p1>Tourist Attraction </p1><br>
-</center>
+</center>  
+{{tourist}}
+    {% if tourists %}
+        {% for tourists in tourists %}
+        <p1> {{ tourists.thai_name_tourist }} ({{ tourists.eng_name_tourist }})</p1>
+        <img src={{ BASIC_DIR }}/{{tourists.t_pic}}  width="700" height="400">
+        {% endfor %}
+    {% else %}
+        <br/>
+        <h1><center>Nothing Found</center></h1>
+        
+    {% endif %}
 
 {% endblock %}

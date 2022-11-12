@@ -1,0 +1,17 @@
+{% extends 'bts_for_fun/layout.html' %}
+{% block body %}
+<br>
+<br>
+<center>
+<p1>Tourist Attraction : {{ tourist.id }}</p1><br>
+<br>
+<p1>Tourist Attraction : {{ tourist.thai_name_tourist }} {{ station.eng_name_tourist }} </p1>
+<br>
+<img src={{ BASIC_DIR }}/{{tourist.t_pic}}  width="700" height="400">
+<br>
+<p1>------------------------------------------</p1><br>
+</center>
+<p2 align="left">{{ tourist.tourist_detai|linebreaksbr }}</p2><br>
+
+
+{% endblock %}
