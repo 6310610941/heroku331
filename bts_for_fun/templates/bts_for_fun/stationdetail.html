@@ -6,7 +6,16 @@
 <p1>Station : {{ station.id }}</p1><br>
 <br>
 <p1>Station : {{ station.code_station }} {{ station.thai_name_station }} ({{ station.eng_name_station }})</p1>
+<br>
+<img src={{ BASIC_DIR }}/{{station.stt_pic}}  width="700" height="400">
+<br>
+<p1>------------------------------------------</p1><br>
 </center>
-
+<p2 align="left">{{ station.station_detail|linebreaksbr }}</p2><br>
+<center>
+<p1>-------------------------------------------------------------------</p1><br>
+<br>
+<p1>Tourist Attraction </p1><br>
+</center>
 
 {% endblock %}

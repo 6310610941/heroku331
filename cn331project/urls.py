@@ -22,3 +22,4 @@ urlpatterns = [
     path('bts_for_fun/', include('bts_for_fun.urls')),
     path('users/', include('users.urls', namespace='users')),
 ]
+
