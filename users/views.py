@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from .forms import SignUpForm
+from django.contrib.auth.decorators import login_required
 
 import users
 
@@ -47,3 +48,7 @@ def signup_view(request):
         form = SignUpForm()
 
     return render(request, 'users/signup.html', {'form':form}, status=200)
+
+@login_required(login_url='/users/login')
+def profile(request):
+    return render(request, 'users/profile.html')
