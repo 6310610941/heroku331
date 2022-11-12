@@ -54,3 +54,25 @@ class LoginPageTests(TestCase):
         login = self.client.login(username='wrong_user', password='wrong_pass')
         self.assertEqual(login, False)
 
+class ProfilePageTests(TestCase):
+    def setUp(self):
+        #create user
+        self.user = User.objects.create_user('test_user', password='test_pass')
+        
+
+    def test_profile_view_status_code(self):
+        """ profile view's status code is ok """
+        
+        c = Client()
+        c.login(username='test_user', password='test_pass')
+        response = c.get(reverse('users:profile'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_change_password_status_code(self):
+        """ change_password's status code is ok """
+
+        c = Client()
+        c.login(username='test_user', password='test_pass')
+        response = c.get(reverse('users:change_password'))
+        self.assertEqual(response.status_code, 200)
+    
