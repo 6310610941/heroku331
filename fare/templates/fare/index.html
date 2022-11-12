@@ -1,0 +1,37 @@
+{% block body %}
+<br>
+<br>
+<p2 >Welcome, {{ user.username }}</p>
+<h1>คำนวณค่าโดยสาร</h1>
+
+<div class="select animated zoomIn">
+  <form align="center" action="{% url 'fare:result' %}" method="POST">
+    {% csrf_token %}
+    <p>สถานีต้นทาง</p><br>
+    <select
+      name="entry"
+      id=""
+    >
+      {% for entry in stations %}
+      <option value="{{ entry.id }}">
+        {{ entry }}
+      </option>
+      {% endfor %}
+    </select><br>
+
+    <p>สถานีปลายทาง</p><br>
+    <select
+      name="destination"
+      id=""
+    >
+      {% for destination in stations %}
+      <option value="{{ destination.id }}">
+        {{ destination }}
+      </option>
+      {% endfor %}
+    </select><br>
+    <input class="submit" type="submit" value="Submit">
+  </form>
+</div>
+
+{% endblock %}
