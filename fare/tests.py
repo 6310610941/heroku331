@@ -85,8 +85,8 @@ class FarePageTests(TestCase):
     def test_result_view_condition_4(self):
         c = Client()
         c.login(username='test_user', password='test_pass')
-        entry = 25
-        destination = 22
+        entry = 17
+        destination = 20
         response = c.post(reverse('fare:result'), {'entry' : entry, 'destination' : destination,})
         self.assertEqual(response.status_code, 200)
 
@@ -135,5 +135,13 @@ class FarePageTests(TestCase):
         c.login(username='test_user', password='test_pass')
         entry = 1
         destination = 34
+        response = c.post(reverse('fare:result'), {'entry' : entry, 'destination' : destination,})
+        self.assertEqual(response.status_code, 200)
+
+    def test_result_view_condition_11(self):
+        c = Client()
+        c.login(username='test_user', password='test_pass')
+        entry = 17
+        destination = 20
         response = c.post(reverse('fare:result'), {'entry' : entry, 'destination' : destination,})
         self.assertEqual(response.status_code, 200)

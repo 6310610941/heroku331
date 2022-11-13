@@ -8,7 +8,6 @@ def index(request):
     if not request.user.is_authenticated:
         return render(request, 'users/login.html')
     else:
-        
         stations = Station.objects.all()
         return render(request, 'fare/index.html',{
                    'stations' : stations,
@@ -26,11 +25,15 @@ def result(request):
 
         if (int(entry) in range(1, 18)) and (int(destination) in range(1, 18)):
             result = 0
-
         elif (int(entry) in range(34, 49) and (int(destination) in range(34, 49))):
             result = 15
+        elif (int(entry) in range(1, 18)):
+            data = abs(int(destination) - 17)
+
+        elif (int(destination) in range(1, 18)):
+            data = abs(17 - int(entry))
         
-        elif data == 1:
+        if data == 1:
             result = 16
 
         elif data == 2:
