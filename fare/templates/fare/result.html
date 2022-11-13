@@ -3,14 +3,20 @@
 <br>
 <br>
 <p2 >Welcome, {{ user.username }}</p>
-<h1>คำนวณค่าโดยสาร</h1>
+<center>
+<p1>คำนวณค่าโดยสาร</p1>
+<br>
+<br>
+</center>
 
 <center>
-    <p1>สถานีต้นทาง : {{ entry }}</p1>
+    <p2>สถานีต้นทาง : {{ entry }}</p2>
     <br>
-    <p1>สถานีปลายทาง : {{ destination }}</p1>
     <br>
-    <p1>ค่าโดยสารทั้งหมด {{ result }} บาท</p1>
+    <p2>สถานีปลายทาง : {{ destination }}</p2>
+    <br>
+    <br>
+    <p2>ค่าโดยสารทั้งหมด {{ result }} บาท</p2>
     
 {% endblock %}
 

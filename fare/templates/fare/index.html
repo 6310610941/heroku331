@@ -3,12 +3,15 @@
 <br>
 <br>
 <p2 >Welcome, {{ user.username }}</p>
-<h1>คำนวณค่าโดยสาร</h1>
+<center>
+<p1>คำนวณค่าโดยสาร</p1>
+</center>
+<br>
 
 <div class="select animated zoomIn">
   <form align="center" action="{% url 'fare:result' %}" method="POST">
     {% csrf_token %}
-    <p>สถานีต้นทาง</p><br>
+    <p2>สถานีต้นทาง</p2><br>
     <select
       name="entry"
       id=""
@@ -20,7 +23,7 @@
       {% endfor %}
     </select><br>
 
-    <p>สถานีปลายทาง</p><br>
+    <p2>สถานีปลายทาง</p2><br>
     <select
       name="destination"
       id=""
@@ -31,6 +34,7 @@
       </option>
       {% endfor %}
     </select><br>
+      <br>
     <input class="submit" type="submit" value="Submit">
   </form>
 </div>

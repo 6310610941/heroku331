@@ -26,13 +26,15 @@ def stationdetail(request,station_id):
     })
 
 
-def touristdetail(request,tourist_id):
+def touristdetail(request,station_id,tourist_id):
     if not request.user.is_authenticated:
         return render(request, 'users/login.html')
     else:
-        tourist = Tourist.objects.get(id=tourist_id)
-
+        station = Station.objects.get(id=station_id)
+        tourists = Tourist.objects.filter(on_station=station)
+        ta = Tourist.objects.get(id=tourist_id)
         return render(request, 'bts_for_fun/touristdetail.html',{
-                   'tourist' : tourist,
-
+                   'station' : station,
+                   'tourists' : tourists,
+                   'ta' : ta,
     })
