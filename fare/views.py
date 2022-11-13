@@ -57,10 +57,10 @@ def result(request):
         elif data == 7:
             result = 40
 
-        elif 8 <= data < 15:
+        elif 8 <= data < 10:
             result = 44
         
-        elif data >= 15:
+        elif data >= 10:
             result = 59
 
         return render(request, 'fare/result.html',{
