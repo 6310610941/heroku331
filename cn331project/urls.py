@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about', include('about.urls', namespace='about')),
     path('bts_for_fun/', include('bts_for_fun.urls')),
+    path('fare/', include('fare.urls', namespace='fare')),
     path('users/', include('users.urls', namespace='users')),
     path('fare/', include('fare.urls', namespace='fare')),
 ]

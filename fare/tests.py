@@ -59,6 +59,8 @@ class FarePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_result_view_condition_1(self):
+        """ test result condition 1 """
+
         c = Client()
         c.login(username='test_user', password='test_pass')
         entry = 34
@@ -67,6 +69,9 @@ class FarePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_result_view_condition_2(self):
+        """ test result condition 2 """
+
+
         c = Client()
         c.login(username='test_user', password='test_pass')
         entry = 25
@@ -75,6 +80,8 @@ class FarePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_result_view_condition_3(self):
+        """ test result condition 3 """
+
         c = Client()
         c.login(username='test_user', password='test_pass')
         entry = 25
@@ -83,6 +90,8 @@ class FarePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_result_view_condition_4(self):
+        """ test result condition 4 """
+
         c = Client()
         c.login(username='test_user', password='test_pass')
         entry = 17
@@ -91,6 +100,8 @@ class FarePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_result_view_condition_5(self):
+        """ test result condition 5 """
+        
         c = Client()
         c.login(username='test_user', password='test_pass')
         entry = 25
@@ -99,6 +110,8 @@ class FarePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_result_view_condition_6(self):
+        """ test result condition 6 """
+
         c = Client()
         c.login(username='test_user', password='test_pass')
         entry = 25
@@ -107,6 +120,8 @@ class FarePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_result_view_condition_7(self):
+        """ test result condition 7 """
+
         c = Client()
         c.login(username='test_user', password='test_pass')
         entry = 25
@@ -115,6 +130,8 @@ class FarePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_result_view_condition_8(self):
+        """ test result condition 8 """
+
         c = Client()
         c.login(username='test_user', password='test_pass')
         entry = 25
@@ -123,6 +140,8 @@ class FarePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_result_view_condition_9(self):
+        """ test result condition 9 """
+
         c = Client()
         c.login(username='test_user', password='test_pass')
         entry = 25
@@ -131,6 +150,8 @@ class FarePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_result_view_condition_10(self):
+        """ test result condition 10 """
+
         c = Client()
         c.login(username='test_user', password='test_pass')
         entry = 1
@@ -139,6 +160,8 @@ class FarePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_result_view_condition_11(self):
+        """ test result condition 11 """
+
         c = Client()
         c.login(username='test_user', password='test_pass')
         entry = 17
