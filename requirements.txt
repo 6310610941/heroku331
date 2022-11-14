@@ -3,3 +3,4 @@ Django
 sqlparse
 gunicorn
 django-heroku
+Pillow
