@@ -19,11 +19,11 @@
 <br>
 <p1>Tourist Attraction </p1><br>
 </center>  
-{{tourist}}
+<br>
     {% if tourists %}
         {% for tourists in tourists %}
-        <p1> {{ tourists.thai_name_tourist }} ({{ tourists.eng_name_tourist }})</p1><br>
-        <img src="{{tourists.tourist_pic}}"  width="600" height="300"><br>
+        <p2> {{ tourists.thai_name_tourist }} ({{ tourists.eng_name_tourist }})</p2><br>
+        <img src="{{tourists.tourist_pic}}"  width="400" height="200"><br>
         <br>
         {% endfor %}
     {% else %}
