@@ -7,7 +7,9 @@
 <br>
 <p1>Station : {{ station.code_station }} {{ station.thai_name_station }} ({{ station.eng_name_station }})</p1>
 <br>
-<img src={{ BASIC_DIR }}/{{station.stt_pic}}  width="700" height="400">
+<img src="{{station.station_pic}}" alt="station" width="700" height="400">
+
+
 <br>
 <p1>------------------------------------------</p1><br>
 </center>
@@ -21,7 +23,7 @@
     {% if tourists %}
         {% for tourists in tourists %}
         <p1> {{ tourists.thai_name_tourist }} ({{ tourists.eng_name_tourist }})</p1><br>
-        <img src={{ BASIC_DIR }}/{{tourists.t_pic}}  width="700" height="400"><br>
+        <img src="{{station.station_pic}}"  width="600" height="300"><br>
         <br>
         {% endfor %}
     {% else %}

@@ -7,7 +7,7 @@ def index(request):
     if not request.user.is_authenticated:
         return render(request, 'users/login.html')
     else:
-        stations = Station.objects.all()
+        stations = Station.objects.all().order_by('pk')
         return render(request, 'bts_for_fun/index.html',{
                    'stations' : stations,
         

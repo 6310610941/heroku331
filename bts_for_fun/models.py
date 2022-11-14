@@ -8,6 +8,7 @@ class Station(models.Model):
     code_station = models.CharField(max_length=64)
     station_detail = models.TextField()
     stt_pic = models.ImageField(upload_to='static/stationpic/', blank = True)
+    station_pic = models.URLField(max_length=300, blank = True)
     
     def __str__(self):
         return f" {self.code_station} - {self.thai_name_station} ({self.eng_name_station})"
@@ -22,6 +23,7 @@ class Tourist(models.Model):
     comment = models.TextField()
     rating = models.SmallIntegerField(default=0)
     t_pic = models.ImageField(upload_to='static/touristpic/', blank = True)
+    tourist_pic = models.URLField(max_length=300, blank = True)
     
     def __str__(self):
         return f"{self.thai_name_tourist} ({self.eng_name_tourist})"
