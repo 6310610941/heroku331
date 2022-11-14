@@ -23,7 +23,7 @@
     {% if tourists %}
         {% for tourists in tourists %}
         <p1> {{ tourists.thai_name_tourist }} ({{ tourists.eng_name_tourist }})</p1><br>
-        <img src="{{station.station_pic}}"  width="600" height="300"><br>
+        <img src="{{tourists.tourist_pic}}"  width="600" height="300"><br>
         <br>
         {% endfor %}
     {% else %}
