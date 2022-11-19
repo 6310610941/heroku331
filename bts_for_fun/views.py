@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
-from .models import Station,Tourist,Rating
+from .models import Station, Tourist, Rating
+
 # Create your views here.
 
 def index(request):
@@ -44,3 +45,4 @@ def rate(request: HttpRequest, tourist_id: int, rating: int) -> HttpResponse:
     Rating.objects.filter(tourist=tourist, user=request.user).delete()
     tourist.rating_set.create(user=request.user, rating=rating)
     return index(request)
+

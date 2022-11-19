@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'bts_for_fun',
     'fare',
     'about',
+    'post',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,8 +133,8 @@ STATICFILES_DIRS = ( os.path.join(BASE_DIR,'static'), )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import django_heroku
-django_heroku.settings(locals())
+# import django_heroku
+# django_heroku.settings(locals())
 
 MEDIA_URL = '/media/'
 
