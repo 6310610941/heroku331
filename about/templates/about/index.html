@@ -1,89 +1,191 @@
-<!DOCTYPE html>
-<html lang='en','th'>
-<head>
-<title>BTS For Fun</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;1,300&display=swap" rel="stylesheet">
-<style>
-body {font-family: "Times New Roman", Georgia, Serif;}
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display";
-  letter-spacing: 5px;
-}
-li{
-  font-family:'K2D', Georgia, Serif;
-  
-  
-}
-</style>
+{% extends 'about/layout.html' %}
+{% load static %}
+{% block body %}
+    {% if  user.is_authenticated %}
+    <header id="masthead" class="site-header">
+        <nav id="primary-navigation" class="site-navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                   
+                    <a href="{% url 'about:index' %}" class="site-title"><span>BTS</span> for fun</a>
+
+                </div><!-- /.navbar-header -->
+
+                <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="active"><a href="{% url 'about:index' %}" >Home</a></li>
+                        <li ><a href="{% url 'about:about_us' %}">About us</a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+    
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                              <li><a href="{% url 'fare:index' %}">Fare</a></li>
+                              <li><a href="{% url 'post:post-list' %}">Community</a></li>
+                            </ul>
+    
+                        </li>
+                        <li><a href="{% url 'users:profile' %}">Profile</a></li>
+                        <li><a href="{% url 'users:logout' %}">Log out</a></li>
+    
+                    </ul>
+
+                </div>
+
+            </div>   
+        </nav><!-- /.site-navigation -->
+    </header><!-- /#mastheaed -->
+    {% else %}
+    <header id="masthead" class="site-header">
+        <nav id="primary-navigation" class="site-navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                   
+                    <a href="{% url 'about:index' %}" class="site-title"><span>BTS</span> for fun</a>
+
+                </div><!-- /.navbar-header -->
+
+                <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="active"><a href="{% url 'about:index' %}" >Home</a></li>
+                        <li ><a href="{% url 'about:about_us' %}">About us</a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+    
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                              <li><a href="{% url 'fare:index' %}">Fare</a></li>
+                              <li><a href="{% url 'post:index' %}">Community</a></li>
+                            </ul>
+    
+                        </li>
+                        <li><a href="{% url 'users:login' %}">Log in</a></li>
+                        <li><a href="{% url 'users:signup' %}">Sign up</a></li>
+                    </ul>
+
+                </div>
+
+            </div>   
+        </nav><!-- /.site-navigation -->
+    </header><!-- /#mastheaed -->
+    {% endif %}
 </head>
 <body>
 
-<!-- Navbar (sit on top) -->
+    <div id="hero" class="hero overlay">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>BTS For Fun</h1>
+                <p>Easy to travel, no need to spend a long plan.</p>
+                <a href="#" class="btn btn-border">Have fun</a>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
 
-{% if  user.is_authenticated %}
-        <body>
-            <!-- Navbar (sit on top) -->
-            <div class="w3-top">
-                <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-                    <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">BTS For Fun</a>
-                    <!-- Right-sided navbar links. Hide them on small screens -->
-                    
-                    <div class="w3-right w3-hide-small">
-                        <a href="{% url 'about:about_us' %}" class="w3-bar-item w3-button">About Us</a>
-                        <a href="{% url 'bts_for_fun:index' %}" class="w3-bar-item w3-button">List of Stations</a>
-                        <a href="{% url 'fare:index' %}" class="w3-bar-item w3-button">Fare</a>
-                        <a href="{% url 'users:profile' %}" class="w3-bar-item w3-button">Profile</a>
-                        <a href="{% url 'users:logout' %}" class="w3-bar-item w3-button">Log out</a>
+    <main id="main" class="site-main">
+
+        <section class="site-section section-features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>About us</h2>
+                        <p>Member</p>
+                        <body>
+                            <ul >
+                                <li>นางสาวชนาธินาถ พิศประเทือง 6310610941</li>
+                                <li>นางสาวอรจิรา วงศ์พลกานันท์ 6310611022</li>
+                                <li>นายภัทรกร แก้วชูกุล 6310611030</li>
+                                <li>นางสาวธัญรดี นามบรรเทิง 6310682593 </li>
+                            </ul>
+                        </body>
+                        <br>
+                        <br>
+                        <p>Link</p>
+                        <body>
+                            <ul>
+                            <li><a href="https://github.com/6310610941/cn331-project.git/">Visit github</a></li>
+                            <li><a href="https://www.pivotaltracker.com/n/projects/2607398/">Visit Privotal Tracker</a></li>
+                            </ul>
+                        </body>
+                    </div>
+                    <div class="col-sm-7 hidden-xs">
+                        <img src="{% static 'img/train3.webp' %}" alt="">
+                        
                     </div>
                 </div>
             </div>
-    {% else %}
-    <div class="w3-top">
-        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">BTS For Fun</a>
-            <!-- Right-sided navbar links. Hide them on small screens -->
-            
-            <div class="w3-right w3-hide-small">
-                <a href="{% url 'about:about_us' %}" class="w3-bar-item w3-button">About Us</a>
-                <a href="{% url 'bts_for_fun:index' %}" class="w3-bar-item w3-button">List of Stations</a>
-                <a href="{% url 'fare:index' %}" class="w3-bar-item w3-button">Fare</a>
-                <a href="{% url 'users:login' %}" class="w3-bar-item w3-button">Log in</a>
-                <a href="{% url 'users:signup' %}" class="w3-bar-item w3-button">Sign up</a>
+        </section><!-- /.section-features -->
+
+        <section class="site-section section-portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="heading-separator">Top Rating</h2>
+                    <p class="subheading-text">User give the most top 5 </p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">  
+                            <img src="{% static 'img/portfolio-1.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static 'img/portfolio-2.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static 'img/portfolio-3.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static 'img/portfolio-4.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static 'img/portfolio-5.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static 'img/portfolio-6.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static 'img/portfolio-1.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static 'img/portfolio-2.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    {% endif %}
+        </section><!-- /.section-portfolio -->
 
-
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-  <img class="w3-image" src="https://img.freepik.com/premium-photo/bts-skytrain-bangkok-cityscape_33997-114.jpg?w=2000" alt="BTS" width="1600" height="800">
-</header>
-
-<!-- Page content -->
-<div class="w3-content" style="max-width:1100px">
-
-  <!-- About Section -->
-  <div class="w3-row w3-padding-64" id="about">
-    <div class="w3-col m6 w3-padding-large">
-        <h1>Members</h1>
-        <body>
-            <ul >
-                <li>นางสาวชนาธินาถ พิศประเทือง 6310610941</li>
-                <li>นางสาวอรจิรา วงศ์พลกานันท์ 6310611022</li>
-                <li>นายภัทรกร แก้วชูกุล 6310611030</li>
-                <li>นางสาวธัญรดี นามบรรเทิง 6310682593 </li>
-            </ul>
-        </body>
-        <h1> Link </h1>
-        <body>
-            <ul>
-            <li><a href="https://github.com/6310610941/cn331-project.git/">Visit github</a></li>
-            <li><a href="https://www.pivotaltracker.com/n/projects/2607398/">Visit Privotal Tracker</a></li>
-            </ul>
-        </body>
-    </div>
-  </div>
+    </main><!-- /#main -->
+{% endblock %}

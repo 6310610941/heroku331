@@ -1,25 +1,135 @@
 {% extends 'about/layout.html' %}
+{% load static %}
 {% block body %}
-<br>
-<br>
-<div class="main">
-<center>
-<br>
-<br>
-<p1>Members</p1><br>
-<br>
-<p1>นางสาวชนาธินาถ พิศประเทือง 6310610941</p1><br>
-<p1>นางสาวอรจิรา วงศ์พลกานันท์ 6310611022</p1><br>
-<p1>นายภัทรกร แก้วชูกุล 6310611030</p1><br>
-<p1>นางสาวธัญรดี นามบรรเทิง 6310682593 </p1><br>
-<br>
-<br>
-<br>
-<br>
-<p1>Link</u></p1><br>
-<br>
-<p1><a href="https://github.com/6310610941/cn331-project.git/">Visit github</a></p1><br>
-<p1><a href="https://www.pivotaltracker.com/n/projects/2607398/">Visit Privotal Tracker</a></p1>
-</center>
-</div>
+{% if  user.is_authenticated %}
+<header id="masthead" class="site-header site-header-white">
+    <nav id="primary-navigation" class="site-navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+               
+                <a href="{% url 'about:index' %}" class="site-title"><span>BTS</span> for fun</a>
+
+            </div><!-- /.navbar-header -->
+
+            <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="{% url 'about:index' %}" >Home</a></li>
+                    <li class="active"><a href="{% url 'about:about_us' %}">About us</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                          <li><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                          <li><a href="{% url 'fare:index' %}">Fare</a></li>
+                          <li><a href="{% url 'post:post-list' %}">Community</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a href="{% url 'users:profile' %}">Profile</a></li>
+                    <li><a href="{% url 'users:logout' %}">Log out</a></li>
+
+                </ul>
+            </div>
+
+        </div>   
+    </nav><!-- /.site-navigation -->
+</header><!-- /#mastheaed -->
+{% else %}
+<header id="masthead" class="site-header site-header-white" >
+    <nav id="primary-navigation" class="site-navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+               
+                <a href="{% url 'about:index' %}" class="site-title"><span>BTS</span> for fun</a>
+
+            </div><!-- /.navbar-header -->
+
+            <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="{% url 'about:index' %}" >Home</a></li>
+                    <li class="active"><a href="{% url 'about:about_us' %}">About us</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                          <li><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                          <li><a href="{% url 'fare:index' %}">Fare</a></li>
+                          <li><a href="{% url 'post:index' %}">Community</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a href="{% url 'users:login' %}">Log in</a></li>
+                    <li><a href="{% url 'users:signup' %}">Sign up</a></li>
+                </ul>
+
+            </div>
+
+        </div>   
+    </nav><!-- /.site-navigation -->
+</header><!-- /#mastheaed -->
+{% endif %}
+</head>
+<body>
+
+    <div id="hero" class="hero overlay subpage-hero contact-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Contact</h1>
+                <ol class="breadcrumb"></ol>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
+
+    <main id="main" class="site-main">
+
+        <section class="site-section subpage-site-section section-contact-us">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <h2>About us</h2>
+                        <h3>Member</h3>
+                        <body>
+                            <ul >
+                                <li>นางสาวชนาธินาถ พิศประเทือง 6310610941</li>
+                                <li>นางสาวอรจิรา วงศ์พลกานันท์ 6310611022</li>
+                                <li>นายภัทรกร แก้วชูกุล 6310611030</li>
+                                <li>นางสาวธัญรดี นามบรรเทิง 6310682593 </li>
+                            </ul>
+                        </body>
+                        <br>
+                        <br>
+                        <h3>Link</h3>
+                        <body>
+                            <ul>
+                            <li><a href="https://github.com/6310610941/cn331-project.git/">Visit github</a></li>
+                            <li><a href="https://www.pivotaltracker.com/n/projects/2607398/">Visit Privotal Tracker</a></li>
+                            </ul>
+                        </body>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="contact-info">
+                            <h2>Contact information</h2>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h3>E-mail</h3>
+                                    <a href="mailto:6310610941@student.tu.ac.th" target="_blank">6310610941@student.tu.ac.th</a><br>
+                                    <a href="mailto:6310611022@student.tu.ac.th" target="_blank">6310611022@student.tu.ac.th</a><br>
+                                    <a href="mailto:6310611030@student.tu.ac.th" target="_blank">6310611030@student.tu.ac.th</a><br>
+                                    <a href="mailto:6310682593@student.tu.ac.th" target="_blank">6310682593@student.tu.ac.th</a>
+                                </div>
+                            </div>
+                        </div><!-- /.contact-info -->
+                    </div>
+                </div>
+            </div>
+            
+        </section><!-- /.section-contact-us -->
+
+
+    </main><!-- /#main -->
 {% endblock %}

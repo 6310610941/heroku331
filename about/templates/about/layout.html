@@ -1,196 +1,111 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang='en','th'>
-    <head>
-        <title>BTS_For_Fun</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;1,300&display=swap" rel="stylesheet">
-        <style>
+<html lang="en">
+<head>
 
-            body {
-                width: 100%;
-                min-height: 900px;
-                margin: 3em auto;
-                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7cac9+0,92a8d1+100 */
-                background: rgb(247, 202, 201);
-                /* Old browsers */
-                background: -moz-linear-gradient(-45deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
-                /* FF3.6-15 */
-                background: -webkit-linear-gradient(-45deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
-                /* Chrome10-25,Safari5.1-6 */
-                background: linear-gradient(135deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
-                /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                /* IE6-9 fallback on horizontal gradient */
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>| BTSForFun |</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;1,300&display=swap" rel="stylesheet">
+
+    <!-- Favicon
+    ================================================== -->
     
-                font-family: "Times New Roman",'K2D', Georgia, Serif;
-                letter-spacing: 1px;
-            }
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/train1.png' %}">
 
-            h1 {
-                i {
-                    margin-top:300px;
-                    position: relative;
-                    font-size: 70px;
-                    font-family: 'K2D', Georgia, Serif;
-                }
-                font-family: 'K2D', Georgia, Serif;
-                text-align: center;
-                color: #fff;
-                font-weight: 500;
-                font-size: 3em;
-                letter-spacing: 0px;
-                text-shadow: 1px 1px rgba(0,
-                0,
-                0,
-                0.02),
-                2px 2px rgba(0,
-                0,
-                0,
-                0.02),
-                3px 3px rgba(0,
-                0,
-                0,
-                0.02),
-                4px 4px rgba(0,
-                0,
-                0,
-                0.02),
-                5px 5px rgba(0,
-                0,
-                0,
-                0.02),
-                6px 6px rgba(0,
-                0,
-                0,
-                0.02),
-                7px 7px rgba(0,
-                0,
-                0,
-                0.02);
-            }
+    <!-- Stylesheets
+    ================================================== -->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
-            p1 {
-                text-align: center;
-                color: #fff;
-                font-size: 30px;
-                margin-bottom: 2em;
-                line-height: 30px;
-                font-family: 'K2D', Georgia, Serif;
-                img {
-                    position: relative;
-                    top: 8px;
-                    right: 10px;
-                }
-            }
-            
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
 
-            .spelling-error {
-                text-decoration-line: underline;
-                text-decoration-style: wavy;
-                text-decoration-color: red;
-            }
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block body %}
+    {% endblock %}
 
-
-            p {
-                text-align: center;
-                color: #fff;
-                font-size: 14px;
-                margin-bottom: 2em;
-                line-height: 30px;
-                font-family: "Times New Roman",'K2D', Georgia, Serif;
-                img {
-                    position: relative;
-                    top: 8px;
-                    right: 10px;
-                }
-            } 
-
-            p2 {
-                text-align: left;
-                color: #fff;
-                font-size: 14px;
-                margin-bottom: 2em;
-                line-height: 30px;
-                img {
-                    position: relative;
-                    top: 8px;
-                    right: 10px;
-                }
-            } 
-
-            .submit {
-                cursor: pointer;
-                  border-radius: 5em;
-                  color: #fff;
-                  background: linear-gradient(to right, #ec6f66 , #f3a183
-             );
-                  border: 0;
-                  padding-left: 40px;
-                  padding-right: 40px;
-                  padding-bottom: 10px;
-                  padding-top: 10px;
-                  font-family: 'K2D', Georgia, Serif;
-                  margin-left: 35%;
-                  font-size: 13px;
-                  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-                  
-              }
-
-              .main {
-                background-color: #ffc8bb;
-                width: 700px;
-                height: 500px;
-                margin: 7em auto;
-                border-radius: 1.5em;
-                box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-            }
-
-              
-        </style>
-    </head>
-
-    {% if  user.is_authenticated %}
-        <body>
-            <!-- Navbar (sit on top) -->
-            <div class="w3-top">
-                <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-                    <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">BTS For Fun</a>
-                    <!-- Right-sided navbar links. Hide them on small screens -->
-                    
-                    <div class="w3-right w3-hide-small">
-                        <a href="{% url 'about:about_us' %}" class="w3-bar-item w3-button">About Us</a>
-                        <a href="{% url 'bts_for_fun:index' %}" class="w3-bar-item w3-button">List of Stations</a>
-                        <a href="{% url 'fare:index' %}" class="w3-bar-item w3-button">Fare</a>
-                        <a href="{% url 'users:profile' %}" class="w3-bar-item w3-button">Profile</a>
-                        <a href="{% url 'users:logout' %}" class="w3-bar-item w3-button">Log out</a>
+    <footer id="colophon" class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-6">
+                    <a class="site-title"><span>BTS</span> for fun</a>
+                    <p>We have prepared a website that will help facilitate the search of attractions that are easy to travel. </p>
+                    <p>Including being able to calculate the fare.</p>
+                </div>
+                <div class="col-lg-offset-4 col-md-3 col-sm-4 col-md-offset-2 col-sm-offset-0 col-xs-6 ">
+                    <h3>Keep in touch</h3>
+                    <ul class="list-unstyled contact-links">
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@btsforfun.com">info@btsforfun.com</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+37400800000">+374 (00) 80 00 00 </a></li>
+                        <li><i class="fa fa-fax" aria-hidden="true"></i><a href="+37400900000">+374 (00) 90 00 00</a></li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i><p>Thammasat university,Rangsit, Pathumthani</p></li>
+                    </ul>
+                </div>
+                <div class="clearfix visible-xs"></div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <h3>Featured links</h3>
+                    <ul class="list-unstyled">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="portfolio.html">Porfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="social-links">
+                            
+                        </div><!-- /.social-links -->
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="text-right">
+                            <p>&copy; BTSForFun</p>
+                            <p>All Rights Reserved</p>
+                        </div>
                     </div>
                 </div>
             </div>
-    {% else %}
-    <div class="w3-top">
-        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">BTS For Fun</a>
-            <!-- Right-sided navbar links. Hide them on small screens -->
-            
-            <div class="w3-right w3-hide-small">
-                <a href="{% url 'about:about_us' %}" class="w3-bar-item w3-button">About Us</a>
-                <a href="{% url 'bts_for_fun:index' %}" class="w3-bar-item w3-button">List of Stations</a>
-                <a href="{% url 'fare:index' %}" class="w3-bar-item w3-button">Fare</a>
-                <a href="{% url 'users:login' %}" class="w3-bar-item w3-button">Log in</a>
-                <a href="{% url 'users:signup' %}" class="w3-bar-item w3-button">Sign up</a>
-            </div>
-        </div>
-    </div>
-    {% endif %}
+        </div><!-- /.copyright -->
+    </footer><!-- /#footer -->
 
-    
 
-<!-- Page content -->
-<div class="w3-content" style="max-width:1100px">
-        {% block body %}
-        {% endblock %}
-    </body>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countTo.min.js' %}"></script>
+    <script src="{% static 'js/jquery.shuffle.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
 </html>

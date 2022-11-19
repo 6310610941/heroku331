@@ -1,38 +1,139 @@
-{% extends 'bts_for_fun/layout.html' %}
+{% extends 'about/layout.html' %}
+{% load static %}
 {% block body %}
-<br>
-<br>
-<center>
-<p1>Station : {{ station.id }}</p1><br>
-<br>
-<p1>Station : {{ station.code_station }} {{ station.thai_name_station }} ({{ station.eng_name_station }})</p1>
-<br>
-<img src="{{station.station_pic}}" alt="station" width="700" height="400">
+{% if  user.is_authenticated %}
+<header id="masthead" class="site-header site-header-white">
+    <nav id="primary-navigation" class="site-navigation">
+        <div class="container">
 
+            <div class="navbar-header">
+               
+                <a href="{% url 'about:index' %}" class="site-title"><span>BTS</span> for fun</a>
 
-<br>
-<p1>------------------------------------------</p1><br>
-</center>
-<p2 align="left">{{ station.station_detail|linebreaksbr }}</p2><br>
-<center>
-<p1>-------------------------------------------------------------------</p1><br>
-<br>
-<p1>Tourist Attraction </p1><br>
-</center>  
-<br>
-    {% if tourists %}
-        {% for tourist in tourists %}
-        <a href="{% url 'bts_for_fun:touristdetail' tourist.id %}" >
-            <p2> {{ tourist.thai_name_tourist }} ({{ tourist.eng_name_tourist }})</p2><br>
-            <img src="{{tourist.tourist_pic}}"  width="400" height="200"><br>
-            <br>
-        </a>
-        
-        {% endfor %}
-    {% else %}
-        <br/>
-        <p><center>ยังไม่มีสถานที่ท่องเที่ยวที่น่าสนใจที่สถานีนี้</center></p>
-        
-    {% endif %}
+            </div><!-- /.navbar-header -->
 
+            <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="{% url 'about:index' %}" >Home</a></li>
+                    <li ><a href="{% url 'about:about_us' %}">About us</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                          <li class="active"><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                          <li><a href="{% url 'fare:index' %}">Fare</a></li>
+                          <li><a href="{% url 'post:post-list' %}">Community</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a href="{% url 'users:profile' %}">Profile</a></li>
+                    <li><a href="{% url 'users:logout' %}">Log out</a></li>
+
+                </ul>
+            </div>
+
+        </div>   
+    </nav><!-- /.site-navigation -->
+</header><!-- /#mastheaed -->
+{% else %}
+<header id="masthead" class="site-header site-header-white" >
+    <nav id="primary-navigation" class="site-navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+               
+                <a href="{% url 'about:index' %}" class="site-title"><span>BTS</span> for fun</a>
+
+            </div><!-- /.navbar-header -->
+
+            <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="{% url 'about:index' %}" >Home</a></li>
+                    <li ><a href="{% url 'about:about_us' %}">About us</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                          <li class="active"><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                          <li><a href="{% url 'fare:index' %}">Fare</a></li>
+                          <li><a href="{% url 'post:index' %}">Community</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a href="{% url 'users:login' %}">Log in</a></li>
+                    <li><a href="{% url 'users:signup' %}">Sign up</a></li>
+                </ul>
+
+            </div>
+
+        </div>   
+    </nav><!-- /.site-navigation -->
+</header><!-- /#mastheaed -->
+{% endif %}
+
+</head>
+<body>
+
+    <div id="hero" class="hero overlay subpage-hero station-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Station</h1>
+                <ol class="breadcrumb"></ol>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
+
+    <main id="main" class="site-main">
+
+        <section class="site-section subpage-site-section section-contact-us">
+
+            <div class="container">
+                <center>
+                <h3>Station : {{ station.code_station }} {{ station.thai_name_station }} ({{ station.eng_name_station }})</h3>
+                <img src="{{station.station_pic}}" alt="station" width="700" height="400">
+
+                <br>
+                <br>
+                <p1>------------------------------------------</p1><br>
+                <br>
+                </center>
+                <p2 align="left">{{ station.station_detail|linebreaksbr }}</p2><br>
+                <center>
+                    <br>
+                <p1>-------------------------------------------------------------------</p1><br>
+                <br>
+                <br>
+                <p1>Tourist Attraction </p1><br>
+                <br>
+                </center>  
+                <br>
+                    {% if tourists %}
+                        {% for tourist in tourists %}
+                        <a href="{% url 'bts_for_fun:touristdetail' tourist.id %}" >
+                            <p2> {{ tourist.thai_name_tourist }} ({{ tourist.eng_name_tourist }})</p2><br>
+                            <img src="{{tourist.tourist_pic}}"  width="400" height="200"><br>
+                            <br>
+                        </a>
+                        
+                        {% endfor %}
+                    {% else %}
+                        <br/>
+                        <p><center>ยังไม่มีสถานที่ท่องเที่ยวที่น่าสนใจที่สถานีนี้</center></p>
+                        
+                    {% endif %}
+
+              </div>
+            </center>
+            </div>
+
+              
+            
+        </section><!-- /.section-contact-us -->
+        <br>
+        <br>
+       
+
+    </main><!-- /#main -->
 {% endblock %}
