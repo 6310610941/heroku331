@@ -21,10 +21,13 @@
 </center>  
 <br>
     {% if tourists %}
-        {% for tourists in tourists %}
-        <p2> {{ tourists.thai_name_tourist }} ({{ tourists.eng_name_tourist }})</p2><br>
-        <img src="{{tourists.tourist_pic}}"  width="400" height="200"><br>
-        <br>
+        {% for tourist in tourists %}
+        <a href="{% url 'bts_for_fun:touristdetail' tourist.id %}" >
+            <p2> {{ tourist.thai_name_tourist }} ({{ tourist.eng_name_tourist }})</p2><br>
+            <img src="{{tourist.tourist_pic}}"  width="400" height="200"><br>
+            <br>
+        </a>
+        
         {% endfor %}
     {% else %}
         <br/>
