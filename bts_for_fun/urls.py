@@ -8,5 +8,6 @@ app_name = 'bts_for_fun'
 urlpatterns = [
     path('',views.index,name='index'),
     path('stationdetail/<int:station_id>',views.stationdetail,name='stationdetail'),
-    path('touristdetail/<int:tourist_id>',views.touristdetail,name='touristdetail')
+    path('touristdetail/<int:tourist_id>',views.touristdetail,name='touristdetail'),
+    path('rate/<int:tourist_id>/<int:rating>/', views.rate),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

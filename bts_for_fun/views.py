@@ -1,6 +1,6 @@
 from django.shortcuts import render
-
-from .models import Station,Tourist
+from django.http import HttpResponse, HttpRequest
+from .models import Station,Tourist,Rating
 # Create your views here.
 
 def index(request):
@@ -27,10 +27,20 @@ def stationdetail(request,station_id):
 
 
 def touristdetail(request,tourist_id):
+    tourists = Tourist.objects.filter(id=tourist_id)
+    for tour in tourists:
+        rating = Rating.objects.filter(tourist=tour, user=request.user).first()
+        tour.user_rating = rating.rating if rating else 0
 
     tourist = Tourist.objects.get(id=tourist_id)
 
     return render(request, 'bts_for_fun/touristdetail.html',{
-                   'tourist' : tourist,
+                   'tourist' : tourist,  "tourists": tourists
 
     })
+
+def rate(request: HttpRequest, tourist_id: int, rating: int) -> HttpResponse:
+    tourist = Tourist.objects.get(id=tourist_id)
+    Rating.objects.filter(tourist=tourist, user=request.user).delete()
+    tourist.rating_set.create(user=request.user, rating=rating)
+    return index(request)

@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.db.models import Avg
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Station(models.Model):
@@ -21,10 +22,20 @@ class Tourist(models.Model):
         Station, on_delete=models.CASCADE, related_name="on_id_station")
     tourist_detail = models.TextField()
     comment = models.TextField()
-    rating = models.SmallIntegerField(default=0)
+    #rating = models.SmallIntegerField(default=0)
     t_pic = models.ImageField(upload_to='static/touristpic/', blank = True)
     tourist_pic = models.URLField(max_length=300, blank = True)
     
+    def average_rating(self) -> float:
+        return Rating.objects.filter(tourist=self).aggregate(Avg("rating"))["rating__avg"] or 0
     def __str__(self):
-        return f"{self.thai_name_tourist} ({self.eng_name_tourist})"
+        return f"{self.thai_name_tourist} ({self.eng_name_tourist}) {self.average_rating()}"
+
     
+class Rating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    tourist = models.ForeignKey(Tourist, on_delete=models.CASCADE)
+    rating = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.tourist.eng_name_tourist}: {self.rating}"
