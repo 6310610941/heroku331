@@ -69,3 +69,11 @@ class StationTestCase(TestCase):
 
 
     
+    def test_valid_touristdetail_page(self):
+        """ login's user can view tourist attraction detail """
+        c = Client()
+        c.login(username='test_user', password='test_pass')
+        q = Tourist.objects.first()
+
+        response = c.post(reverse('bts_for_fun:touristdetail', args=(q.id,)))
+        self.assertEqual(response.status_code, 200)
