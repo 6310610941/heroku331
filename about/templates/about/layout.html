@@ -68,10 +68,10 @@
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                     <h3>Featured links</h3>
                     <ul class="list-unstyled">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="portfolio.html">Porfolio</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{% url 'about:index' %}" >Home</a></li>
+                        <li><a href="{% url 'about:about_us' %}">About us</a></li>
+                        <li><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                        <li><a href="{% url 'fare:index' %}">Fare</a></li>
                     </ul>
                 </div>
             </div>

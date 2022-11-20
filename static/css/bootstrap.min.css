@@ -4507,7 +4507,7 @@ tbody.collapse.in {
 .dropdown-menu>.active>a:hover {
     color: rgba(255, 255, 255, 0.652);
     text-decoration: none;
-    background-color: #e84f37;
+    background-color: #dd4932;
     outline: 0
 }
 
