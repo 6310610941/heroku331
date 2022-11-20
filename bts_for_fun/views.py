@@ -32,11 +32,11 @@ def touristdetail(request,tourist_id):
     for tour in tourists:
         rating = Rating.objects.filter(tourist=tour, user=request.user).first()
         tour.user_rating = rating.rating if rating else 0
-
+    rating = Rating.objects.filter(tourist=tour, user=request.user).first()
     tourist = Tourist.objects.get(id=tourist_id)
 
     return render(request, 'bts_for_fun/touristdetail.html',{
-                   'tourist' : tourist,  "tourists": tourists
+                   'tourist' : tourist,  "tourists": tourists, 'rating' : rating
 
     })
 

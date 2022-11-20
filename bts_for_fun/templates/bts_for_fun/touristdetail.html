@@ -1,86 +1,169 @@
-{% extends 'bts_for_fun/layout.html' %}
+{% extends 'about/layout.html' %}
+{% load static %}
 {% block body %}
-<br>
-<br>
-<center>
-<p1>Tourist Attraction : {{ tourist.id }}</p1><br>
-<br>
-<p1>Tourist Attraction : {{ tourist.thai_name_tourist }} {{ tourist.eng_name_tourist }} </p1>
-<br>
-<img src={{tourist.tourist_pic}}  width="700" height="400">
-<br>
-<p1>------------------------------------------</p1><br>
-</center>
-<p2 align="left">{{ tourist.tourist_detai|linebreaksbr }}</p2><br>
+{% if  user.is_authenticated %}
+<header id="masthead" class="site-header site-header-white">
+    <nav id="primary-navigation" class="site-navigation">
+        <div class="container">
 
-<a href="{% url 'post:post-list' %}" >
-    <p1>Community BTS For Fun</p1><br>
-</a>
+            <div class="navbar-header">
+               
+                <a href="{% url 'about:index' %}" class="site-title"><span>BTS</span> for fun</a>
 
+            </div><!-- /.navbar-header -->
+
+            <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="{% url 'about:index' %}" >Home</a></li>
+                    <li ><a href="{% url 'about:about_us' %}">About us</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                          <li><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                          <li><a href="{% url 'fare:index' %}">Fare</a></li>
+                          <li><a href="{% url 'post:post-list' %}">Community</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'users:profile' %}">Profile</a></li>
+                    <li><a href="{% url 'users:logout' %}">Log out</a></li>
+                </ul>
+            </div>
+
+        </div>   
+    </nav><!-- /.site-navigation -->
+</header><!-- /#mastheaed -->
+{% endif %}
+
+</head>
 <body>
-    <style>
-        .rating-list li {
-          float: right;
-          color: #ddd;
-          padding: 10px 5px;
-        }
 
-        .rating-list li:hover,
-        .rating-list li:hover ~ li {
-          color: orange;
-        }
+    <div id="hero" class="hero overlay subpage-hero tourist-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Tourist Attraction</h1>
+                <ol class="breadcrumb"></ol>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
 
-        .rating-list {
-          display: inline-block;
-          list-style: none;
-        }
-        .checked {
-            color: orange;
-        }
-    </style>
-    
-    <div class="container" style="padding: 2em">
-        {% for tourist in tourists %}
-        <div class="card" style="width: 30rem;">
+    <main id="main" class="site-main">
 
-          <div class="card-body">
-            <h5 class="card-title">Avg rating:
-                <span class="fa fa-star {% if tourist.average_rating > 0 %} checked {% endif %}"></span>
-                <span class="fa fa-star {% if tourist.average_rating > 1 %} checked {% endif %}"></span>
-                <span class="fa fa-star {% if tourist.average_rating > 2 %} checked {% endif %}"></span>
-                <span class="fa fa-star {% if tourist.average_rating > 3 %} checked {% endif %}" ></span>
-                <span class="fa fa-star {% if tourist.average_rating > 4 %} checked {% endif %}"></span>
-            </h5>
-            <ul class="btn btn-light list-inline rating-list">
-              <li onclick="rate(5, {{ tourist.id }})">
-                  <i class="fa fa-star {% if tourist.user_rating > 3 %} checked {% endif %}" title="Rate 5"></i></li>
-              <li onclick="rate(4, {{ tourist.id }})">
-                  <i class="fa fa-star {% if tourist.user_rating > 3 %} checked {% endif %}" title="Rate 4"></i></li>
-              <li onclick="rate(3, {{ tourist.id }})">
-                  <i class="fa fa-star {% if tourist.user_rating > 2 %} checked {% endif %}" title="Rate 3"></i></li>
-              <li onclick="rate(2, {{ tourist.id }})">
-                  <i class="fa fa-star {% if tourist.user_rating > 1 %} checked {% endif %}" title="Rate 2"></i></li>
-              <li onclick="rate(1, {{ tourist.id }})">
-                  <i class="fa fa-star {% if tourist.user_rating > 0 %} checked {% endif %}" title="Rate 1"></i></li>
-            </ul>
-          </div>
-        </div>
-    {% endfor %}
-    </div>
-    <script>
-        const rate = (rating, tourist_id) => {
-            fetch(`/bts_for_fun/rate/${tourist_id}/${rating}/`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(rest => {
-                window.location.reload();
+        <section class="site-section subpage-site-section section-contact-us section-portfolio">
+            <div class="container">
+                  
+                <center>
+                <h3>{{ tourist.thai_name_tourist }} {{ tourist.eng_name_tourist }}</h3>
+                <br>
+                <img src="{{tourist.tourist_pic}}" alt="tourist attraction" width="700" height="400">
+                <br>
+                <br>
+                <p1>------------------------------------------</p1><br>
+                <h3>Rating : {{ tourist.average_rating }}</h3><br>
+                <h3>On station : {{ tourist.on_station }}</h3>
 
-            })
-        }
-    </script>
-</body>
+                <p1>------------------------------------------</p1><br>
+                <br>
+                <br>
+                </center>
+                <div class="col-md-6">
+                    <div class="panel-group accordion mb-50" id="accordion">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" aria-expanded="false" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        Detail
+                                    </a>
+                                </h4><!-- /.panel-title -->
+                            </div><!-- /.panel-heading -->
+                            <div aria-expanded="false" id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>{{ tourist.tourist_detail|linebreaksbr }}</p>
+                                </div><!-- /.panel-body -->
+                            </div><!-- /.panel-collapse -->
+                        </div><!-- /.panel -->
+                    </div><!-- /.panel-group -->
+                </div>
+                <h2> - </h2>
+                <center>
+                    <br>
+                <p1>-------------------------------------------------------------------</p1><br>
+                <br>
+                
+                <br>
+                <br>
+
+                <body>
+                    <style>
+                        .rating-list li {
+                        float: right;
+                        color: #ddd;
+                        padding: 10px 5px;
+                        }
+
+                        .rating-list li:hover,
+                        .rating-list li:hover ~ li {
+                        color: orange;
+                        }
+
+                        .rating-list {
+                        display: inline-block;
+                        list-style: none;
+                        }
+                        .checked {
+                            color: orange;
+                        }
+                    </style>
+                    
+                    <div class="container" style="padding: 2em">
+                        {% for tourist in tourists %}
+                        <div class="card" style="width: 30rem;">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Avg rating:
+                                <span class="fa fa-star {% if tourist.average_rating > 0 %} checked {% endif %}"></span>
+                                <span class="fa fa-star {% if tourist.average_rating > 1 %} checked {% endif %}"></span>
+                                <span class="fa fa-star {% if tourist.average_rating > 2 %} checked {% endif %}"></span>
+                                <span class="fa fa-star {% if tourist.average_rating > 3 %} checked {% endif %}" ></span>
+                                <span class="fa fa-star {% if tourist.average_rating > 4 %} checked {% endif %}"></span>
+                            </h5>
+                            <ul class="btn btn-light list-inline rating-list">
+                            <li onclick="rate(5, {{ tourist.id }})">
+                                <i class="fa fa-star {% if tourist.user_rating > 3 %} checked {% endif %}" title="Rate 5"></i></li>
+                            <li onclick="rate(4, {{ tourist.id }})">
+                                <i class="fa fa-star {% if tourist.user_rating > 3 %} checked {% endif %}" title="Rate 4"></i></li>
+                            <li onclick="rate(3, {{ tourist.id }})">
+                                <i class="fa fa-star {% if tourist.user_rating > 2 %} checked {% endif %}" title="Rate 3"></i></li>
+                            <li onclick="rate(2, {{ tourist.id }})">
+                                <i class="fa fa-star {% if tourist.user_rating > 1 %} checked {% endif %}" title="Rate 2"></i></li>
+                            <li onclick="rate(1, {{ tourist.id }})">
+                                <i class="fa fa-star {% if tourist.user_rating > 0 %} checked {% endif %}" title="Rate 1"></i></li>
+                            </ul>
+                        </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <script>
+                        const rate = (rating, tourist_id) => {
+                            fetch(`/bts_for_fun/rate/${tourist_id}/${rating}/`, {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                }
+                            }).then(rest => {
+                                window.location.reload();
+
+                            })
+                        }
+                    </script>
+                </body>
+
+            </div>
+            <br><br><br><br>
+          <center><a href="{% url 'bts_for_fun:index' %}" class="btn btn-coral mb-10">Back to List of Stations</a></center>
+        </section><!-- /.section-contact-us -->
+        
+    </main><!-- /#main -->
 {% endblock %}
-
 

@@ -7,7 +7,8 @@ class Station(models.Model):
     thai_name_station = models.CharField(max_length=64)
     eng_name_station = models.CharField(max_length=64)
     code_station = models.CharField(max_length=64)
-    station_detail = models.TextField()
+    station_detail_plan = models.TextField(blank = True)
+    station_detail_exit = models.TextField(blank = True)
     station_pic = models.URLField(max_length=300, blank = True)
     
     def __str__(self):

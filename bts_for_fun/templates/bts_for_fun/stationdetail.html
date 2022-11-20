@@ -56,7 +56,7 @@
             <div class="container">
                   
                 <center>
-                <h3>Station : {{ station.code_station }} {{ station.thai_name_station }} ({{ station.eng_name_station }})</h3>
+                <h3>{{ station.code_station }} {{ station.thai_name_station }} ({{ station.eng_name_station }})</h3>
                 <img src="{{station.station_pic}}" alt="station" width="700" height="400">
 
                 <br>
@@ -64,9 +64,45 @@
                 <p1>------------------------------------------</p1><br>
                 <br>
                 </center>
-                <p2 align="left">{{ station.station_detail|linebreaksbr }}</p2><br>
+                <div class="col-md-12">
+                    <div class="panel-group accordion mb-50" id="accordion">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" aria-expanded="false" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        Detail
+                                    </a>
+                                </h4><!-- /.panel-title -->
+                            </div><!-- /.panel-heading -->
+                            <div aria-expanded="false" id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>{{ station.station_detail_plan|linebreaksbr }}</p>
+                                </div><!-- /.panel-body -->
+                            </div><!-- /.panel-collapse -->
+                        </div><!-- /.panel -->
+
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a aria-expanded="false" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">
+                                        Exit
+                                    </a>
+                                </h4><!-- /.panel-title -->
+                            </div><!-- /.panel-heading -->
+                            <div aria-expanded="false" id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>{{ station.station_detail_exit|linebreaksbr }}</p>
+                                </div><!-- /.panel-body -->
+                            </div><!-- /.panel-collapse -->
+                        </div><!-- /.panel -->
+
+                        
+                    </div><!-- /.panel-group -->
+                </div>
+                <br>
+                <br>
                 <center>
-                    <br>
+                <br>
                 <p1>-------------------------------------------------------------------</p1><br>
                 <br>
                 <br>
