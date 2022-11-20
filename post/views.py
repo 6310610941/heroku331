@@ -7,6 +7,9 @@ from django.views.generic.edit import UpdateView, DeleteView
 from .forms import PostForm, CommentForm
 
 # Create your views here.
+def index(request):
+    if not request.user.is_authenticated:
+        return render(request, 'users/login.html')
 
 class PostListView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
@@ -17,7 +20,7 @@ class PostListView(LoginRequiredMixin, View):
             'post_list': posts,
             'form': form,
         }
-        return render(request, 'post/post_list.html', context)
+        return render(request, 'post/post_list.html', context, status=200)
 
     def post(self, request, *args, **kwargs):
         posts = Post.objects.all().order_by('-created_on')
@@ -32,11 +35,11 @@ class PostListView(LoginRequiredMixin, View):
             'post_list': posts,
             'form': form,
         }
-        return render(request, 'post/post_list.html', context)
+        return render(request, 'post/post_list.html', context, status=200)
 
 class PostDetailView(LoginRequiredMixin, View):
     def get(self, request, pk, *args, **kwargs):
-        post = Post.objects.get(pk=pk)
+        post = Post.objects.get(id=pk)
         form = CommentForm()
         comments = Comment.objects.filter(post=post).order_by('-created_on')
 
@@ -66,7 +69,7 @@ class PostDetailView(LoginRequiredMixin, View):
             'comments': comments,
         }
 
-        return render(request, 'post/post_detail.html', context)
+        return render(request, 'post/post_detail.html', context, status=200)
 
 class PostEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
