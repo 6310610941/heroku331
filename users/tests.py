@@ -32,8 +32,6 @@ class LoginPageTests(TestCase):
     def setUp(self):
         #create user
         self.user = User.objects.create_user('test_user', password='test_pass')
-        #c = Client()
-        #c.login(username='test_user', password='test_pass')
 
     def test_login_view_status_code(self):
         """ login view's status code is ok """
