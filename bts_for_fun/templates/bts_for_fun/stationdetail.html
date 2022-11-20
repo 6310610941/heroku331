@@ -21,7 +21,7 @@
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
 
                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                          <li class="active"><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                          <li><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
                           <li><a href="{% url 'fare:index' %}">Fare</a></li>
                           <li><a href="{% url 'post:post-list' %}">Community</a></li>
                         </ul>
@@ -31,41 +31,6 @@
                     <li><a href="{% url 'users:logout' %}">Log out</a></li>
 
                 </ul>
-            </div>
-
-        </div>   
-    </nav><!-- /.site-navigation -->
-</header><!-- /#mastheaed -->
-{% else %}
-<header id="masthead" class="site-header site-header-white" >
-    <nav id="primary-navigation" class="site-navigation">
-        <div class="container">
-
-            <div class="navbar-header">
-               
-                <a href="{% url 'about:index' %}" class="site-title"><span>BTS</span> for fun</a>
-
-            </div><!-- /.navbar-header -->
-
-            <div class="collapse navbar-collapse" id="agency-navbar-collapse">
-
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li ><a href="{% url 'about:index' %}" >Home</a></li>
-                    <li ><a href="{% url 'about:about_us' %}">About us</a></li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
-
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                          <li class="active"><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
-                          <li><a href="{% url 'fare:index' %}">Fare</a></li>
-                          <li><a href="{% url 'post:index' %}">Community</a></li>
-                        </ul>
-
-                    </li>
-                    <li><a href="{% url 'users:login' %}">Log in</a></li>
-                    <li><a href="{% url 'users:signup' %}">Sign up</a></li>
-                </ul>
-
             </div>
 
         </div>   
@@ -89,6 +54,7 @@
 
         <section class="site-section subpage-site-section section-contact-us section-portfolio">
             <div class="container">
+                  
                 <center>
                 <h3>Station : {{ station.code_station }} {{ station.thai_name_station }} ({{ station.eng_name_station }})</h3>
                 <img src="{{station.station_pic}}" alt="station" width="700" height="400">
@@ -111,7 +77,6 @@
 
                 {% if tourists %}
                     {% for tourist in tourists %}   
-                        <div id="grid" class="row">
                             <div class="col-lg-3 col-md-4 col-xs-6" >
                                 <div class="portfolio-item">
                                     <img src ="{{tourist.tourist_pic}}" class="img-res" alt="">
@@ -119,16 +84,18 @@
                                     <a href="{% url 'bts_for_fun:touristdetail' tourist.id %}"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div><!-- /.portfolio-item -->
                             </div>
-                        </div>
                     {% endfor %}
                 {% else %}
                     <br>
                     <p><center>ยังไม่มีสถานที่ท่องเที่ยวที่น่าสนใจที่สถานีนี้</center></p>
                 {% endif %}        
-            </div>
-            
-        </section><!-- /.section-contact-us -->
 
+                
+            </div>
+            <br><br><br><br>
+          <center><a href="{% url 'bts_for_fun:index' %}" class="btn btn-coral mb-10">Back to List of Stations</a></center>
+        </section><!-- /.section-contact-us -->
+        
     </main><!-- /#main -->
 {% endblock %}
 

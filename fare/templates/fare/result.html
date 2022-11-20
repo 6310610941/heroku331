@@ -1,29 +1,85 @@
-{% extends 'bts_for_fun/layout.html' %}
+{% extends 'about/layout.html' %}
+{% load static %}
 {% block body %}
-<br>
-<br>
-<p2 class='un'>Welcome, {{ user.username }}</p2>
-<center>
-<div class="main" >    
-<br>
-<br>
-<br>
-<br>
-<br>
-<p1 class='un'>คำนวณค่าโดยสาร</p1>
-<br>
-<br>
-<br>
-<br>
-    <p2 class='un'>สถานีต้นทาง : {{ entry }}</p2>
-    <br>
-    <br>
-    <p2 class='un'>สถานีปลายทาง : {{ destination }}</p2>
-    <br>
-    <br>
-    <p2 class='un'>ค่าโดยสารทั้งหมด {{ result }} บาท</p2>
-</center>
-</div>
+{% if  user.is_authenticated %}
+<header id="masthead" class="site-header site-header-white">
+    <nav id="primary-navigation" class="site-navigation">
+        <div class="container">
 
+            <div class="navbar-header">
+               
+                <a href="{% url 'about:index' %}" class="site-title"><span>BTS</span> for fun</a>
+
+            </div><!-- /.navbar-header -->
+
+            <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="{% url 'about:index' %}" >Home</a></li>
+                    <li ><a href="{% url 'about:about_us' %}">About us</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                          <li><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                          <li><a href="{% url 'fare:index' %}">Fare</a></li>
+                          <li><a href="{% url 'post:post-list' %}">Community</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a href="{% url 'users:profile' %}">Profile</a></li>
+                    <li><a href="{% url 'users:logout' %}">Log out</a></li>
+
+                </ul>
+            </div>
+
+        </div>   
+    </nav><!-- /.site-navigation -->
+</header><!-- /#mastheaed -->
+{% endif %}
+
+</head>
+<body>
+
+    <div id="hero" class="hero overlay subpage-hero result-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Fare</h1>
+                <ol class="breadcrumb"></ol>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
+
+    <main id="main" class="site-main">
+
+        <section class="site-section subpage-site-section section-contact-us">
+
+            <div class="container">
+              <p2 class='un'>Welcome, {{ user.username }}</p2>
+              <br><br><br>
+              <center><h3>ผลลัพธ์การคำนวณค่าโดยสาร</h3>
+                <br>
+                <a href="{% url 'bts_for_fun:stationdetail' entry.id%}" class="btn btn-orange mb-10" style="width:700px">สถานีต้นทาง : {{ entry }}</a>  
+                <br>
+                <br>
+                <h3>ถึง</h3>
+                <a href="{% url 'bts_for_fun:stationdetail' entry.id%}" class="btn btn-orange mb-10" style="width:700px">สถานีปลายทาง : {{ destination }}</a>  
+                <br><br><br>
+                <p1>---------------------------------------------------------</p1><br>
+                <br>
+                <a href="#" class="btn btn-yellow mb-10">ค่าโดยสารทั้งหมด {{ result }} บาท</a>  
+                <br><br><br>
+
+                </center>
+            <a href="{% url 'fare:index' %}" class="btn btn-border mb-10">Back to Fare</a>  
+            </div>
+
+             
+            
+        </section><!-- /.section-contact-us -->
+        <br>
+        <br>
+       
+
+    </main><!-- /#main -->
 {% endblock %}
-

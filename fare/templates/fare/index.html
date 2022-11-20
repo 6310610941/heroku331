@@ -1,42 +1,111 @@
-{% extends 'bts_for_fun/layout.html' %}
+{% extends 'about/layout.html' %}
+{% load static %}
 {% block body %}
-<br>
-<br>
-<p2 class='un'>Welcome, {{ user.username }}</p2>
-<center>
-<p1>คำนวณค่าโดยสาร</p1>
-</center>
-<br>
+{% if  user.is_authenticated %}
+<header id="masthead" class="site-header site-header-white">
+    <nav id="primary-navigation" class="site-navigation">
+        <div class="container">
 
-<div class="select animated zoomIn">
-  <form align="center" action="{% url 'fare:result' %}" method="POST">
-    {% csrf_token %}
-    <p2>สถานีต้นทาง</p2><br>
-    <select
-      name="entry"
-      id=""
-    >
-      {% for entry in stations %}
-      <option value="{{ entry.id }}">
-        {{ entry }}
-      </option>
-      {% endfor %}
-    </select><br>
+            <div class="navbar-header">
+               
+                <a href="{% url 'about:index' %}" class="site-title"><span>BTS</span> for fun</a>
 
-    <p2>สถานีปลายทาง</p2><br>
-    <select
-      name="destination"
-      id=""
-    >
-      {% for destination in stations %}
-      <option value="{{ destination.id }}">
-        {{ destination }}
-      </option>
-      {% endfor %}
-    </select><br>
-      <br>
-    <input class="submit" type="submit" value="Submit">
-  </form>
-</div>
+            </div><!-- /.navbar-header -->
 
+            <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="{% url 'about:index' %}" >Home</a></li>
+                    <li ><a href="{% url 'about:about_us' %}">About us</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                          <li><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                          <li class="active"><a href="{% url 'fare:index' %}">Fare</a></li>
+                          <li><a href="{% url 'post:post-list' %}">Community</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a href="{% url 'users:profile' %}">Profile</a></li>
+                    <li><a href="{% url 'users:logout' %}">Log out</a></li>
+
+                </ul>
+            </div>
+
+        </div>   
+    </nav><!-- /.site-navigation -->
+</header><!-- /#mastheaed -->
+{% endif %}
+
+</head>
+<body>
+
+    <div id="hero" class="hero overlay subpage-hero fare-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Fare</h1>
+                <ol class="breadcrumb"></ol>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
+
+    <main id="main" class="site-main">
+
+        <section class="site-section subpage-site-section section-contact-us">
+
+            <div class="container">
+              <p2 class='un'>Welcome, {{ user.username }}</p2>
+              <center><h3>คำนวณค่าโดยสาร</h3>
+                <br>
+                <br>
+                <br>
+              <form align="center" action="{% url 'fare:result' %}" method="POST">
+                {% csrf_token %}
+                <p2>สถานีต้นทาง</p2><br>
+                <select class="selectpicker"
+                  name="entry"
+                  id=""
+                >
+                  {% for entry in stations %}
+                  <option value="{{ entry.id }}">
+                    {{ entry }}
+                  </option>
+                  {% endfor %}
+                </select><br>
+                <br>
+                <br>
+
+                <p1>------------------------------------------</p1><br><br>
+                <br>
+
+                <p2>สถานีปลายทาง</p2><br>
+                <select class="selectpicker"
+                  name="destination"
+                  id=""
+                >
+                  {% for destination in stations %}
+                  <option value="{{ destination.id }}">
+                    {{ destination }}
+                  </option>
+                  {% endfor %}
+                </select><br>
+                  <br>
+                <input class="btn btn-coral mb-10" type="submit" value="Submit">
+              </form>
+
+            </center>
+            </div>
+
+              
+            
+        </section><!-- /.section-contact-us -->
+        <br>
+        <br>
+       
+
+    </main><!-- /#main -->
 {% endblock %}
+
+
+

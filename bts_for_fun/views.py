@@ -19,7 +19,7 @@ def stationdetail(request,station_id):
         return render(request, 'users/login.html')
     else:
         station = Station.objects.get(id=station_id)
-        tourists = Tourist.objects.filter(on_station=station)
+        tourists = Tourist.objects.filter(on_station=station).order_by('-rating')
         return render(request, 'bts_for_fun/stationdetail.html',{
                    'station' : station,
                    'tourists' : tourists,
