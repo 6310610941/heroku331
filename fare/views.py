@@ -8,10 +8,11 @@ def index(request):
     if not request.user.is_authenticated:
         return render(request, 'users/login.html')
     else:
-        stations = Station.objects.all()
+        stations = Station.objects.all().order_by('pk')
         return render(request, 'fare/index.html',{
                    'stations' : stations,
     })
+        
 
 def result(request):
     if not request.user.is_authenticated:
