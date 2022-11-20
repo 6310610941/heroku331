@@ -57,58 +57,71 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                       <label for="name">Name: {{ user.first_name }}  {{ user.last_name }}</label>
-                                      {% comment %} <input type="text" class="form-control" id="name"> {% endcomment %}
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                       <label for="email">E-mail: {{user.email}}</label>
-                                      {% comment %} <input type="email" class="form-control" id="email"> {% endcomment %}
                                     </div>
                                 </div>
-                            
-                            <br><br>
 
-                            <h2>Information</h2>
-                                {% if user_form.errors %}
-                                    <div class="alert alert-danger alert-dismissible" role="alert">
-                                        <div id="form_errors">
-                                            {% for key, value in user_form.errors.items %}
-                                                <strong>{{ value }}</strong>
-                                            {% endfor %}
+
+                                
+                            </div>
+                    </div>    
+                </div>    
+                                <br><br>
+
+                                <h2>Information</h2>
+                                    {% if user_form.errors %}
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <div id="form_errors">
+                                                {% for key, value in user_form.errors.items %}
+                                                    <strong>{{ value }}</strong>
+                                                {% endfor %}
+                                            </div>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                    {% endif %}
+
+                                    <div class="form-content">
+                                        <form method="post" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <lable >Username: {{ user_form.username }} </lable><br>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 mt-10">
+                                            <div class="form-group">
+                                                <lable >Email: {{ user_form.email }}</lable><br>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <lable >Name: {{ user_form.first_name }}</lable><br>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mt-50">
+                                            <div class="form-group">
+                                                <lable >Surname: {{ user_form.last_name }}</lable><br>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <br>
+                                            <br><br><br><br><br><br><br><br><br><br><br><br>
+                                            <a href="{% url 'users:change_password' %}">Change Password</a><br>
+                                            <button type="reset" class="btn btn-coral mb-10">Reset</button>
+                                            <button type="submit" class="btn btn-coral mb-10">Save Changes</button><br><br>
+                                        </div>
+                                        </form>
                                     </div>
-                                {% endif %}
-                                <div class="form-content">
-                                    <form method="post" enctype="multipart/form-data">
-                                        {% csrf_token %}
                             
-                                            <div class="col-md-5">
-                                                <div class="form-group">
-                                                    <lable >Username: {{ user_form.username }} </lable><br>
-                                                    <label >Email: {{ user_form.email }}</label><br>
-                                                    <label >Name: {{ user_form.first_name }}</lable><br>
-                                                    <label >Surname: {{ user_form.last_name }}</label><br>
-                                                </div>
-                                                
-
-                                        </div>
-                                        <center>
-                                                <a href="{% url 'users:change_password' %}">Change Password</a><br>
-                                                <button type="reset" class="btn btn-coral mb-10">Reset</button>
-                                                <button type="submit" class="btn btn-coral mb-10">Save Changes</button><br><br>
-                                                <center>
-                                        <br><br>
-                                    </form>
-                                </div>
-                    </div>
                 
-                </div>
             </div>
-
         </section><!-- /.section-contact-us -->
 
 

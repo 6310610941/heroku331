@@ -916,20 +916,18 @@ html, body {
 }
 
 .fare-hero {
-    background: url(../img/train5.jpeg) no-repeat center / cover;     
+    background: url(../img/bts.jpeg) no-repeat center / cover;     
 }
 
 .result-hero {
-    background: url(../img/train5.jpeg) no-repeat center / cover;     
+    background: url(../img/train11.jpg) no-repeat center / cover;     
 }
 
 .tourist-hero {
-    background: url(../img/train5.jpeg) no-repeat center / cover;     
+    background: url(../img/train12.jpg) no-repeat center / cover;     
 }
 
-.signup-hero {
-    background: url(../img/train5.jpeg) no-repeat center / cover;     
-}
+
 
 /* SITEMAIN
 ================================================== */
