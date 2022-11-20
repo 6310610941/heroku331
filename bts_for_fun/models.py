@@ -8,7 +8,6 @@ class Station(models.Model):
     eng_name_station = models.CharField(max_length=64)
     code_station = models.CharField(max_length=64)
     station_detail = models.TextField()
-    stt_pic = models.ImageField(upload_to='static/stationpic/', blank = True)
     station_pic = models.URLField(max_length=300, blank = True)
     
     def __str__(self):
@@ -21,9 +20,7 @@ class Tourist(models.Model):
     on_station = models.ForeignKey(
         Station, on_delete=models.CASCADE, related_name="on_id_station")
     tourist_detail = models.TextField()
-    comment = models.TextField()
     #rating = models.SmallIntegerField(default=0)
-    t_pic = models.ImageField(upload_to='static/touristpic/', blank = True)
     tourist_pic = models.URLField(max_length=300, blank = True)
     
     def average_rating(self) -> float:

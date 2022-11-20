@@ -87,8 +87,7 @@
 
     <main id="main" class="site-main">
 
-        <section class="site-section subpage-site-section section-contact-us">
-
+        <section class="site-section subpage-site-section section-contact-us section-portfolio">
             <div class="container">
                 <center>
                 <h3>Station : {{ station.code_station }} {{ station.thai_name_station }} ({{ station.eng_name_station }})</h3>
@@ -105,30 +104,31 @@
                 <p1>-------------------------------------------------------------------</p1><br>
                 <br>
                 <br>
-                <p1>Tourist Attraction </p1><br>
+                <h3>Tourist Attraction </h3><br>
                 <br>
                 </center>  
                 <br>
-                    {% if tourists %}
-                        {% for tourist in tourists %}
-                        <a href="{% url 'bts_for_fun:touristdetail' tourist.id %}" >
-                            <p2> {{ tourist.thai_name_tourist }} ({{ tourist.eng_name_tourist }})</p2><br>
-                            <img src="{{tourist.tourist_pic}}"  width="400" height="200"><br>
-                            <br>
-                        </a>
-                        
-                        {% endfor %}
-                    {% else %}
-                        <br/>
-                        <p><center>ยังไม่มีสถานที่ท่องเที่ยวที่น่าสนใจที่สถานีนี้</center></p>
-                        
-                    {% endif %}
 
-              </div>
-            </center>
+                {% if tourists %}
+                    {% for tourist in tourists %}   
+                        <div id="grid" class="row">
+                            <div class="col-lg-3 col-md-4 col-xs-6" >
+                                <div class="portfolio-item">
+                                    <img src ="{{tourist.tourist_pic}}" class="img-res" alt="">
+                                    <h4 class="portfolio-item-title"> {{ tourist.thai_name_tourist }} ({{ tourist.eng_name_tourist }}) </h4>
+                                    <a href="{% url 'bts_for_fun:touristdetail' tourist.id %}"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                </div><!-- /.portfolio-item -->
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <br>
+                    <p><center>ยังไม่มีสถานที่ท่องเที่ยวที่น่าสนใจที่สถานีนี้</center></p>
+                {% endif %}        
             </div>
-
+            
         </section><!-- /.section-contact-us -->
 
     </main><!-- /#main -->
 {% endblock %}
+
