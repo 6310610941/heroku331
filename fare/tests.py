@@ -12,20 +12,20 @@ class FarePageTests(TestCase):
     def setUp(self):
             #create user
             self.user = User.objects.create_user('test_user', password='test_pass')
-            station1 = Station.objects.create(thai_name_station='คูคต', eng_name_station='Khu Khot', code_station='N24', station_detail='-', id=1)
-            station2 = Station.objects.create(thai_name_station='แยก คปอ.', eng_name_station='Yaek Kor Por Aor', code_station='N23', station_detail='-', id=2)
-            station3 = Station.objects.create(thai_name_station='สยาม', eng_name_station='Siam Station', code_station='CEN', station_detail='-', id=25)
-            station4 = Station.objects.create(thai_name_station='ราชเทวี', eng_name_station='Ratchathewi', code_station='N1', station_detail='-', id = 24)
-            station5 = Station.objects.create(thai_name_station='พญาไท', eng_name_station='Phaya Thai', code_station='N2', station_detail='-', id=23)
-            station6 = Station.objects.create(thai_name_station='อนุสาวรีย์ชัยสมรภูมิ', eng_name_station='Victory Monument', code_station='N3', station_detail='-', id=22)
-            station7 = Station.objects.create(thai_name_station='สนามเป้า', eng_name_station='Sanam Pao', code_station='N4', station_detail='-', id=21)
-            station8 = Station.objects.create(thai_name_station='อารีย์', eng_name_station='Ari', code_station='N5', station_detail='-', id=20)
-            station9 = Station.objects.create(thai_name_station='เสนาร่วม', eng_name_station='Sena Rua', code_station='N6', station_detail='-', id=19)
-            station10 = Station.objects.create(thai_name_station='สะพานควาย', eng_name_station='Saphan Khwai', code_station='N7', station_detail='-', id=18)
-            station11 = Station.objects.create(thai_name_station='หมอชิต', eng_name_station='Mo Chit', code_station='N8', station_detail='-', id=17)
-            station12 = Station.objects.create(thai_name_station='อ่อนนุช', eng_name_station='On Nut', code_station='E9', station_detail='-', id=34)
-            station13 = Station.objects.create(thai_name_station='บางจาก', eng_name_station='Bang Chak', code_station='E10', station_detail='-', id=35)
-
+            station1 = Station.objects.create(thai_name_station='คูคต', eng_name_station='Khu Khot', code_station='N24', station_detail_plan='-', station_detail_exit='-', id=1)
+            station2 = Station.objects.create(thai_name_station='แยก คปอ.', eng_name_station='Yaek Kor Por Aor', code_station='N23', station_detail_plan='-', station_detail_exit='-', id=2)
+            station3 = Station.objects.create(thai_name_station='สยาม', eng_name_station='Siam Station', code_station='CEN', station_detail_plan='-', station_detail_exit='-', id=25)
+            station4 = Station.objects.create(thai_name_station='ราชเทวี', eng_name_station='Ratchathewi', code_station='N1', station_detail_plan='-', station_detail_exit='-', id = 24)
+            station5 = Station.objects.create(thai_name_station='พญาไท', eng_name_station='Phaya Thai', code_station='N2', station_detail_plan='-', station_detail_exit='-', id=23)
+            station6 = Station.objects.create(thai_name_station='อนุสาวรีย์ชัยสมรภูมิ', eng_name_station='Victory Monument', code_station='N3', station_detail_plan='-', station_detail_exit='-', id=22)
+            station7 = Station.objects.create(thai_name_station='สนามเป้า', eng_name_station='Sanam Pao', code_station='N4', station_detail_plan='-', station_detail_exit='-', id=21)
+            station8 = Station.objects.create(thai_name_station='อารีย์', eng_name_station='Ari', code_station='N5', station_detail_plan='-', station_detail_exit='-', id=20)
+            station9 = Station.objects.create(thai_name_station='เสนาร่วม', eng_name_station='Sena Rua', code_station='N6', station_detail_plan='-', station_detail_exit='-', id=19)
+            station10 = Station.objects.create(thai_name_station='สะพานควาย', eng_name_station='Saphan Khwai', code_station='N7', station_detail_plan='-', station_detail_exit='-', id=18)
+            station11 = Station.objects.create(thai_name_station='หมอชิต', eng_name_station='Mo Chit', code_station='N8', station_detail_plan='-', station_detail_exit='-', id=17)
+            station12 = Station.objects.create(thai_name_station='อ่อนนุช', eng_name_station='On Nut', code_station='E9', station_detail_plan='-', station_detail_exit='-', id=34)
+            station13 = Station.objects.create(thai_name_station='บางจาก', eng_name_station='Bang Chak', code_station='E10', station_detail_plan='-', station_detail_exit='-', id=35)
+ 
     def test_login_view_status_code_from_fare_page(self):
         """ login view's status code is ok """
 
