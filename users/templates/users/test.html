@@ -1,0 +1,180 @@
+{% extends 'users/layout4.html' %}
+{% block body %}
+<div class="main">
+<p class="sign" align="center">Profile</p>
+
+<p class="un">Name : {{ user.first_name }}  {{ user.last_name }}</p>
+ <p class="un">Email : {{user.email}}</p>
+
+<center>
+<p class="un1" >Information</p>
+</center>
+
+                                                                                                     
+    {% if user_form.errors %}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <div id="form_errors">
+                {% for key, value in user_form.errors.items %}
+                    <strong>{{ value }}</strong>
+                {% endfor %}
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    <div class="form-content">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="un">Username: {{ user_form.username }} </label>
+                            <br><br>
+                        <label class="un">Email: {{ user_form.email }}</label>
+                            <br><br>
+                        <label class="un">Name: {{ user_form.first_name }}</label>
+                            <br><br>
+                        <label class="un">Surname: {{ user_form.last_name }}</label>
+                            <br><br>
+                    </div>
+                    <center>
+                    <div class="form-group">
+                        <br>
+                        <a href="{% url 'users:change_password' %}">Change Password</a><br>
+                        <button type="reset" class="submit">Reset</button>
+                        <button type="submit" class="submit">Save Changes</button>
+                    </div>
+                    </center>
+                </div>
+            </div>
+            <br><br>
+            
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% extends 'about/layout.html' %}
+{% load static %}
+{% block body %}
+<header id="masthead" class="site-header site-header-white">
+    <nav id="primary-navigation" class="site-navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+               
+                <a href="{% url 'about:index' %}" class="site-title"><span>BTS</span> for fun</a>
+
+            </div><!-- /.navbar-header -->
+
+            <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="{% url 'about:index' %}" >Home</a></li>
+                    <li><a href="{% url 'about:about_us' %}">About us</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                          <li><a href="{% url 'bts_for_fun:index' %}">List of Stations</a></li>
+                          <li><a href="{% url 'fare:index' %}">Fare</a></li>
+                          <li><a href="{% url 'post:post-list' %}">Community</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="active"><a href="{% url 'users:profile' %}">Profile</a></li>
+                    <li><a href="{% url 'users:logout' %}">Log out</a></li>
+
+                </ul>
+            </div>
+
+        </div>   
+    </nav><!-- /.site-navigation -->
+</header><!-- /#mastheaed -->
+</head>
+<body>
+
+    <div id="hero" class="hero overlay subpage-hero contact-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Profile</h1>
+                <ol class="breadcrumb"></ol>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
+
+    <main id="main" class="site-main">
+
+        <section class="site-section subpage-site-section section-contact-us">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <h2>Profile</h2>
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <label for="name">Name: {{ user.first_name }}  {{ user.last_name }}</label>
+                                      {% comment %} <input type="text" class="form-control" id="name"> {% endcomment %}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <label for="email">E-mail: {{user.email}}</label>
+                                      {% comment %} <input type="email" class="form-control" id="email"> {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <h2>Information</h2>
+                            {% if user_form.errors %}
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <div id="form_errors">
+                                        {% for key, value in user_form.errors.items %}
+                                            <strong>{{ value }}</strong>
+                                        {% endfor %}
+                                    </div>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            {% endif %}
+
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <lable >Username: {{ user_form.username }} </lable><br>
+                                            <label >Email: {{ user_form.email }}</label><br>
+                                            <label >Name: {{ user_form.first_name }}</label><br>
+                                            <label >Surname: {{ user_form.last_name }}</label>
+                                                <br><br>
+                                        </div>
+                                        <center>
+                                        <div class="form-group">
+                                            <br>
+                                            <a href="{% url 'users:change_password' %}">Change Password</a><br>
+                                            <button type="reset" >Reset</button>
+                                            <button type="submit" >Save Changes</button>
+                                        </div>
+                                        </center>
+                                        
+                                    </div>
+                                </div>
+                                <br><br>
+                            </form>
+                        </form>
+                    </div>
+                
+                </div>
+            </div>
+            
+        </section><!-- /.section-contact-us -->
+
+
+    </main><!-- /#main -->
+
+{% endblock %}

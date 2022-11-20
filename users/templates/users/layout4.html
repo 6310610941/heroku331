@@ -143,21 +143,7 @@
         </style>
     </head>
     <body>
-        <!-- Navbar (sit on top) -->
-        <div class="w3-top">
-            <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-                <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">BTS For Fun</a>
-                <!-- Right-sided navbar links. Hide them on small screens -->
-                <div class="w3-right w3-hide-small">
-                    <a href="{% url 'about:about_us' %}" class="w3-bar-item w3-button">About Us</a>
-                    <a href="{% url 'bts_for_fun:index' %}" class="w3-bar-item w3-button">List of Stations</a>
-                    <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">Fare</a>
-                    <a href="{% url 'users:profile' %}" class="w3-bar-item w3-button">Profile</a>
-                    <a href="{% url 'users:logout' %}" class="w3-bar-item w3-button">Log out</a>
-                </div>
-            </div>
-        </div>
-
+        
 <!-- Page content -->
 <div class="w3-content" style="max-width:1100px">
         {% block body %}

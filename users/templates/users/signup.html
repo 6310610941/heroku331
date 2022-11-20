@@ -1,5 +1,8 @@
 {% extends 'users/layout3.html' %}
 {% block body %}
+
+<br><br>
+<a href="{% url 'users:login' %}" class="submit2">If you have an account -> Login</a><br>
 <div class="main">
   <p class="sign" align="center">Sign Up</p>
   <div class="select animated zoomIn">
@@ -19,7 +22,15 @@
     {% endfor %}
     </div>
     <h1> </h1>
-    <input class="submit" type="submit" value="Sign Up">
+    <br>
+    <input class="submit" type="submit" value="Sign Up"><br>
+    <br><br>
+    
+    
   </form>
+
+
 </div>
+
+
 {% endblock %}

@@ -557,7 +557,7 @@ select {
 .accordion .panel-heading a.collapsed:hover,
 .accordion.accordion-gray .panel-heading a.collapsed:hover,
 .accordion .panel-heading a {
-    background-color: #6fc754;   
+    background-color: #e2552a;   
     color: #fff; 
 }
 
@@ -924,6 +924,10 @@ html, body {
 }
 
 .tourist-hero {
+    background: url(../img/train5.jpeg) no-repeat center / cover;     
+}
+
+.signup-hero {
     background: url(../img/train5.jpeg) no-repeat center / cover;     
 }
 

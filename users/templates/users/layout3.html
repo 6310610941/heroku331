@@ -22,7 +22,7 @@
             .main {
                 background-color: #FFFFFF;
                 width: 800px;
-                height: 900px;
+                height: 910px;
                 margin: 7em auto;
                 border-radius: 1.5em;
                 box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
@@ -36,6 +36,66 @@
                 font-size: 23px;
             }
             
+            header {
+                background-color: #F3EBF6;
+                padding: 30px;
+                text-align: center;
+                font-size: 35px;
+                color: white;
+              }
+
+            .submit1 {
+                cursor: pointer;
+                  border-radius: 5em;
+                  color: #fff;
+                  background: linear-gradient(to right, #ec6f66 , #f3a183
+             );
+                  border: 0;
+                  padding-left: 50px;
+                  padding-right: 50px;
+                  padding-bottom: 20px;
+                  padding-top: 20px;
+                  font-family: 'K2D', Georgia, Serif;
+                  margin-left: -90%;
+                  font-size: 16px;
+                  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+              }
+  
+              .submit2 {
+                  cursor: pointer;
+                    border-radius: 5em;
+                    color: #fff;
+                    background: linear-gradient(to right, #ec6f66 , #f3a183
+               );
+                    border: 0;
+                    padding-left: 40px;
+                    padding-right: 40px;
+                    padding-bottom: 10px;
+                    padding-top: 10px;
+                    font-family: 'K2D', Georgia, Serif;
+                    margin-left: 76%;
+                    font-size: 13px;
+                    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+                }
+  
+                .submit3 {
+                  cursor: pointer;
+                    border-radius: 5em;
+                    color: #fff;
+                    background: linear-gradient(to right, #ec6f66 , #f3a183
+               );
+                    border: 0;
+                    padding-left: 40px;
+                    padding-right: 40px;
+                    padding-bottom: 10px;
+                    padding-top: 10px;
+                    font-family: 'K2D', Georgia, Serif;
+                    margin-left: 85%;
+                    font-size: 13px;
+                    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+                }
+  
+
             .un {
             width: 80%;
             color: rgb(38, 50, 56);
@@ -127,20 +187,7 @@
         </style>
     </head>
     <body>
-        <!-- Navbar (sit on top) -->
-        <div class="w3-top">
-            <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-                <a href="{% url 'about:index' %}" class="w3-bar-item w3-button">BTS For Fun</a>
-                <!-- Right-sided navbar links. Hide them on small screens -->
-                <div class="w3-right w3-hide-small">
-                    <a href="{% url 'about:about_us' %}" class="w3-bar-item w3-button">About Us</a>
-                    <a href="{% url 'bts_for_fun:index' %}" class="w3-bar-item w3-button">List of Stations</a>
-                    <a href="{% url 'fare:index' %}" class="w3-bar-item w3-button">Fare</a>
-                    <a href="{% url 'users:login' %}" class="w3-bar-item w3-button">Log in</a>
-                    <a href="{% url 'users:signup' %}" class="w3-bar-item w3-button">Sign up</a>
-                </div>
-            </div>
-        </div>
+    
 
 <!-- Page content -->
 <div class="w3-content" style="max-width:1100px">

@@ -67,31 +67,10 @@
                 <br>
                 <br>
                 </center>
-                <div class="col-md-6">
-                    <div class="panel-group accordion mb-50" id="accordion">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" aria-expanded="false" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                        Detail
-                                    </a>
-                                </h4><!-- /.panel-title -->
-                            </div><!-- /.panel-heading -->
-                            <div aria-expanded="false" id="collapseOne" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p>{{ tourist.tourist_detail|linebreaksbr }}</p>
-                                </div><!-- /.panel-body -->
-                            </div><!-- /.panel-collapse -->
-                        </div><!-- /.panel -->
-                    </div><!-- /.panel-group -->
-                </div>
-                <h2> - </h2>
+                <p2 align="left">{{ tourist.tourist_detail|linebreaksbr }}</p2><br>
                 <center>
                     <br>
                 <p1>-------------------------------------------------------------------</p1><br>
-                <br>
-                
-                <br>
                 <br>
 
                 <body>
@@ -128,7 +107,7 @@
                                 <span class="fa fa-star {% if tourist.average_rating > 3 %} checked {% endif %}" ></span>
                                 <span class="fa fa-star {% if tourist.average_rating > 4 %} checked {% endif %}"></span>
                             </h5>
-                            <ul class="btn btn-light list-inline rating-list">
+                            <ul class=" btn-light list-inline rating-list">
                             <li onclick="rate(5, {{ tourist.id }})">
                                 <i class="fa fa-star {% if tourist.user_rating > 3 %} checked {% endif %}" title="Rate 5"></i></li>
                             <li onclick="rate(4, {{ tourist.id }})">

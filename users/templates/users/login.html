@@ -1,5 +1,10 @@
 {% extends 'users/layout2.html' %}
 {% block body %}
+
+<br>
+    <a href="{% url 'users:signup' %}" class="submit2">Don’t have an account? - > Sign up</a><br>
+
+  
 <div class="main">
 <p class="sign" align="center">Login</p>
 {% if message %}
@@ -11,5 +16,11 @@
     <input class="pass" align="center" type="password" name="password" placeholder="Password">
     <input class="submit" align="center" type="submit" value="Login">
 </form>
+
 </div>
+<br>
+<br><br><br><br><br><br><br><br>
+<br>
+<br><br><br><br><br><br><br><br>
+<br>
 {% endblock %}

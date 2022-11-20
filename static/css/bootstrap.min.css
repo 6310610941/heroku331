@@ -2546,11 +2546,14 @@ pre code {
     .col-md-3,
     .col-md-4,
     .col-md-5,
-    .col-md-6,
     .col-md-7,
     .col-md-8,
     .col-md-9 {
         float: left
+    }
+
+    .col-md-6{
+        float: inline-start
     }
 
     .col-md-12 {
