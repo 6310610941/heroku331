@@ -52,6 +52,26 @@ class LoginPageTests(TestCase):
         login = self.client.login(username='wrong_user', password='wrong_pass')
         self.assertEqual(login, False)
 
+    def test_login_view_success(self):
+        """ login view success """
+        c = Client()
+        c.login(username='test_user', password='test_pass')
+        response = c.post(reverse('users:login'), {"username": "test_user", "password": "test_pass"}, follow=True)
+        self.assertEquals(response.status_code, 200)
+
+    def test_login_view_failed(self):
+        """ login view fail """
+        c = Client()
+        response = c.post(reverse('users:login'), {"username": "", "password": "12345"}, follow=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_logout(self):
+        """ logout success """
+        self.assertTrue(isinstance(self.user, User))
+        self.client.logout()
+        response = self.client.get(reverse('users:logout'))
+        self.assertTemplateUsed(response, "users/login.html")
+        
 class ProfilePageTests(TestCase):
     def setUp(self):
         #create user

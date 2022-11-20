@@ -15,11 +15,11 @@ import users
 # Create your views here.
 log_in = 'users/login.html'
 
-def index(request):
+#def index(request):
 #     if not request.user.is_authenticated:
 #         return HttpResponseRedirect(reverse('users:login'))
 #     return HttpResponseRedirect(reverse('about:index'))
-    pass
+#    pass
 
 def login_view(request):
     if request.method == "POST":
